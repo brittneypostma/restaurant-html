@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;700&family=Merienda+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,{
+  @apply min-h-screen;
+}
+
+body {
+  @apply max-w-full overflow-x-hidden overflow-y-auto bg-red font-body;
+}
+
+.clear-top {
+  position: relative;
+  z-index: 10;
+  margin-top: 949px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-heading;
+}
+
+h1 {
+  @apply text-6xl;
+}
+
+h2 {
+  @apply text-5xl;
+}
+
+h3 {
+  @apply text-4xl;
+}
+
+h4 {
+  @apply text-3xl;
+}
+
+a {
+  @apply text-lg no-underline transition-all duration-75 ease-linear font-heading;
+}
+
+button {
+  @apply px-3 py-4 text-white uppercase transition-all duration-150 ease-linear rounded-full bg-orange font-heading focus:ring-2 focus:ring-white focus:outline-none;
+}
+
+input {
+  height: 34px;
+  color: black;
+  font-size: 1rem;
+  font-family: 'Advent Pro', Helvetica, sans-serif;
+}
+
+@variants hover {
+  .btn-hover {
+    color: #ff7800;
+    background: white;
+  }
+}
+
+/*! CUSTOM CSS */
+.bezier {
+  transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95),
+    -webkit-transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.bezier:hover {
+  transform: scale(1.1);
+}
+
+.bg {
+  filter: brightness(60%);
+  width: 100vw;
+  height: 100vh;
+}
+
+.card-hover:hover > img {
+  transform: scale(1.1);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clear-header {
+  position: relative;
+  top: 125px;
+}
+
+.email {
+  top: 45px;
+  right: 100px;
+}
+
+.gtc {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media only screen and (max-width: 640px) {
+  .gtc {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  }
+}
+
+.icon:hover > path {
+  fill: #ffffff;
+}
+
+.icon:hover > circle {
+  fill: #ff7800;
+}
+
+.mobile-menu {
+  background: rgba(100, 10, 19, 0.8);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(40px);
+}
+
+@media only screen and (min-width: 930px) {
+  .mobile-menu {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: blur(0);
+  }
+}
+
+.text-shadow {
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/*! Input Number - no buttons */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/*! Waves CSS */
+/* path {
+  transition: fill 150ms ease;
+}
+
+.svg-top {
+  top: -72px;
+}
+
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(195% + 1.3px);
+  height: 54px;
+  transform: rotateY(180deg);
+}
+
+.wave-top {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-top svg {
+  position: relative;
+  display: block;
+  width: calc(195% + 1.3px);
+  height: 54px;
+  transform: rotateY(180deg);
+} */

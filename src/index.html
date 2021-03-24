@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Meta Tags -->
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafafa" />
+    <!-- Open Graph -->
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="./assets/images/og.png" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="" />
+    <meta property="twitter:url" content="" />
+    <meta name="twitter:title" content="Tempate" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <!-- Site -->
+    <link rel="icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <title>Keiko Ramen</title>
+  </head>
+
+  <body>
+    <!-- *HEADER* -->
+    <header
+      class="fixed top-0 z-20 flex items-center justify-between w-full gap-4 p-4 text-white bg-darkRed"
+    >
+      <a href="/index.html">
+        <img
+          src="./assets/images/logo.png"
+          alt="Keiko Ramen logo"
+          class="w-16"
+        />
+      </a>
+      <section class="flex items-center justify-end w-full gap-4">
+        <nav class="hidden lg:flex">
+          <ul class="flex items-center gap-4">
+            <li>
+              <a
+                href="/index.html"
+                class="border-b-0 font-heading border-orange hover:border-b-4"
+                >HOME</a
+              >
+            </li>
+            <li>
+              <a
+                href="/menu.html"
+                class="border-b-0 font-heading border-orange hover:border-b-4"
+                >MENU</a
+              >
+            </li>
+            <li>
+              <a
+                href="/location.html"
+                class="border-b-0 font-heading border-orange hover:border-b-4"
+                >LOCATION</a
+              >
+            </li>
+            <li>
+              <a href="/order-now.html">
+                <button class="hover:btn-hover">ORDER NOW</button>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a href="/cart.html" class="relative">
+          <img src="./assets/images/cart.png" alt="shopping cart" />
+          <p
+            class="absolute w-6 h-6 leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red"
+          >
+            0
+          </p>
+        </a>
+        <button
+          aria-label="menu"
+          class="w-16 text-2xl text-white bg-transparent cursor-pointer lg:hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#ffffff"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </section>
+    </header>
+    <!-- *BG IMAGE* -->
+    <div
+      role="img"
+      aria-label="2 bowls of ramen being presented"
+      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover -top-20 2xl:bg-center parallax"
+      style="background-image: url(./assets/images/bg.jpg)"
+    >
+      <svg
+        class="absolute bottom-0 w-full h-20 transform -scale-1"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          fill="#A50022"
+        ></path>
+      </svg>
+    </div>
+    <section
+      class="fixed top-0 grid w-full h-full gap-10 text-white place-items-center place-content-center text-shadow"
+    >
+      <h1 class="text-5xl lg:text-8xl">Keiko Ramen</h1>
+      <h2 class="font-body">Noodles & Stuff</h2>
+    </section>
+    <div class="clear-top bg-red">
+      <svg
+        class="absolute w-full h-20 transform -top-20 -scale-1"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          fill="#A50022"
+        ></path>
+      </svg>
+      <div class="p-4 lg:p-20">
+        <section id="products" class="grid max-w-5xl gap-2 mx-auto">
+          <template id="menu">
+            <div class="flex transition-transform duration-75 ease-linear transform bg-white rounded-sm lg:hover:shadow-none lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white shadow-inset k">
+            <div
+              class="grid items-center justify-between w-full gap-4 p-4 lg:flex product text-blac "
+            >
+              <h3
+                class="w-3/12 text-2xl whitespace-nowrap md:whitespace-pre-wrap"
+              ></h3>
+              <p class="desc"></p>
+              <p class="text-2xl font-heading price"></p>
+            </div>
+            <button
+              class="flex flex-col items-center self-stretch justify-center p-5 rounded-sm bg-orange"
+            >
+              <img src="./assets/images/cart.png" alt="" />
+              <span
+                class="text-sm text-white whitespace-nowrap md:text-lg font-body"
+                >Add to Cart</span
+              >
+            </button>
+          </template>
+        </section>
+      </div>
+    </div>
+    </div>
+    <script type="module">
+      import { loadProducts } from './js/load-products.js'
+      loadProducts()
+    </script>
+  </body>
+</html>

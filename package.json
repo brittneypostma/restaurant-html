@@ -1,0 +1,29 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/css/styles.css -o ./public/tailwind.css",
+    "dev": "nodemon -x postcss ./src/css/styles.css -o ./src/css/tailwind.css -w tailwind.config.js -w ./src/css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brittneypostma/template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brittneypostma/template/issues"
+  },
+  "homepage": "https://github.com/brittneypostma/template#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "nodemon": "^2.0.7",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.4"
+  },
+  "dependencies": {}
+}
