@@ -31,8 +31,12 @@ module.exports = {
       fontSize: {
         '8xl': "8rem"
       },
+      gridTemplateColumns: {
+        'fit': "repeat(auto-fit, minmax(250px, 1fr))"
+      },
       scale: {
-        '-1': '-1'
+        '-1': '-1',
+        '1': '1.2'
       }
     },
   },

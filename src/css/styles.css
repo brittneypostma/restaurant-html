@@ -15,12 +15,12 @@ body,{
 
 body {
   @apply max-w-full overflow-x-hidden overflow-y-auto bg-red font-body;
+  scroll-behavior: smooth;
 }
 
 .clear-top {
   position: relative;
-  z-index: 10;
-  margin-top: 949px;
+  top: calc(100vh - 5rem);
 }
 
 h1,
@@ -35,7 +35,7 @@ h1 {
 }
 
 h2 {
-  @apply text-5xl;
+  @apply text-5xl text-center;
 }
 
 h3 {
@@ -50,8 +50,8 @@ a {
   @apply text-lg no-underline transition-all duration-75 ease-linear font-heading;
 }
 
-button {
-  @apply px-3 py-4 text-white uppercase transition-all duration-150 ease-linear rounded-full bg-orange font-heading focus:ring-2 focus:ring-white focus:outline-none;
+.btn-primary {
+  @apply px-3 py-4 text-white uppercase transition-colors duration-150 ease-linear rounded-full bg-orange font-heading focus:ring-2 focus:ring-white focus:outline-none hover:bg-white hover:text-orange;
 }
 
 input {
@@ -61,20 +61,10 @@ input {
   font-family: 'Advent Pro', Helvetica, sans-serif;
 }
 
-@variants hover {
-  .btn-hover {
-    color: #ff7800;
-    background: white;
-  }
-}
-
 /*! CUSTOM CSS */
-.bezier {
+.bezier:hover > img {
   transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95),
     -webkit-transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-}
-
-.bezier:hover {
   transform: scale(1.1);
 }
 
@@ -88,39 +78,9 @@ input {
   transform: scale(1.1);
 }
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.clear-header {
-  position: relative;
-  top: 125px;
-}
-
 .email {
   top: 45px;
   right: 100px;
-}
-
-.gtc {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-@media only screen and (max-width: 640px) {
-  .gtc {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
-  }
-}
-
-.icon:hover > path {
-  fill: #ffffff;
-}
-
-.icon:hover > circle {
-  fill: #ff7800;
 }
 
 .mobile-menu {

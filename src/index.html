@@ -30,6 +30,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
+
+    <!-- Scripts -->
+    <script defer src="js/nav-menu.js"></script>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CSSRulePlugin.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
+    ></script>
+    <script defer src="js/animations.js"></script>
+
     <title>Keiko Ramen</title>
   </head>
 
@@ -38,46 +56,43 @@
     <header
       class="fixed top-0 z-20 flex items-center justify-between w-full gap-4 p-4 text-white bg-darkRed"
     >
-      <a href="/index.html">
+      <a href="#">
         <img
           src="./assets/images/logo.png"
           alt="Keiko Ramen logo"
           class="w-16"
         />
       </a>
-      <section class="flex items-center justify-end w-full gap-4">
+      <section class="flex items-center justify-end w-full gap-8">
         <nav class="hidden lg:flex">
-          <ul class="flex items-center gap-4">
+          <ul class="flex items-center gap-8">
             <li>
               <a
-                href="/index.html"
-                class="border-b-0 font-heading border-orange hover:border-b-4"
-                >HOME</a
-              >
-            </li>
-            <li>
-              <a
-                href="/menu.html"
-                class="border-b-0 font-heading border-orange hover:border-b-4"
+                href="#menu"
+                class="uppercase border-b-0 font-heading border-orange hover:border-b-4"
                 >MENU</a
               >
             </li>
             <li>
               <a
-                href="/location.html"
-                class="border-b-0 font-heading border-orange hover:border-b-4"
-                >LOCATION</a
+                href="#contact"
+                class="uppercase border-b-0 font-heading border-orange hover:border-b-4"
+                >CONTACT</a
               >
             </li>
             <li>
-              <a href="/order-now.html">
-                <button class="hover:btn-hover">ORDER NOW</button>
+              <a href="#order">
+                <button class="btn-primary">ORDER NOW</button>
               </a>
             </li>
           </ul>
         </nav>
-        <a href="/cart.html" class="relative">
-          <img src="./assets/images/cart.png" alt="shopping cart" />
+        <a
+          href="/cart.html"
+          class="relative transform hover:scale-1"
+          aria-label="cart"
+        >
+          <img src="./assets/images/cart.png" alt="" />
           <p
             class="absolute w-6 h-6 leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red"
           >
@@ -86,7 +101,7 @@
         </a>
         <button
           aria-label="menu"
-          class="w-16 text-2xl text-white bg-transparent cursor-pointer lg:hidden"
+          class="w-12 p-0 text-white bg-transparent cursor-pointer lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,31 +123,20 @@
     <div
       role="img"
       aria-label="2 bowls of ramen being presented"
-      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover -top-20 2xl:bg-center parallax"
+      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover -top-20 2xl:bg-center"
       style="background-image: url(./assets/images/bg.jpg)"
     >
-      <svg
-        class="absolute bottom-0 w-full h-20 transform -scale-1"
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
+      <section
+        class="fixed top-0 grid w-full h-full gap-10 text-white place-items-center place-content-center text-shadow"
       >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          fill="#A50022"
-        ></path>
-      </svg>
+        <h1 class="text-5xl lg:text-8xl">Keiko Ramen</h1>
+        <h2 class="font-body">Noodles & Stuff</h2>
+      </section>
     </div>
-    <section
-      class="fixed top-0 grid w-full h-full gap-10 text-white place-items-center place-content-center text-shadow"
-    >
-      <h1 class="text-5xl lg:text-8xl">Keiko Ramen</h1>
-      <h2 class="font-body">Noodles & Stuff</h2>
-    </section>
+
     <div class="clear-top bg-red">
       <svg
-        class="absolute w-full h-20 transform -top-20 -scale-1"
+        class="absolute w-full h-8 transform lg:h-20 lg:-top-20 -top-8 -scale-1"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1200 120"
@@ -143,18 +147,24 @@
           fill="#A50022"
         ></path>
       </svg>
-      <div class="p-4 lg:p-20">
-        <section id="products" class="grid max-w-5xl gap-2 mx-auto">
-          <template id="menu">
-            <div class="flex transition-transform duration-75 ease-linear transform bg-white rounded-sm lg:hover:shadow-none lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white shadow-inset k">
+      <section
+        id="menu"
+        class="grid max-w-5xl gap-2 p-4 mx-auto lg:py-10 lg:px-0"
+      >
+        <h2 class="mb-4 text-white lg:mb-10">Menu</h2>
+        <template id="menu-template">
+          <div
+            class="flex transition-transform duration-75 ease-linear transform bg-white rounded-sm lg:hover:shadow-none lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white shadow-inset"
+          >
             <div
-              class="grid items-center justify-between w-full gap-4 p-4 lg:flex product text-blac "
+              class="grid items-center justify-between w-full gap-4 p-4 border-r-2 border-white lg:flex product"
             >
               <h3
+                id="name"
                 class="w-3/12 text-2xl whitespace-nowrap md:whitespace-pre-wrap"
               ></h3>
-              <p class="desc"></p>
-              <p class="text-2xl font-heading price"></p>
+              <p id="desc"></p>
+              <p id="price" class="text-2xl font-heading"></p>
             </div>
             <button
               class="flex flex-col items-center self-stretch justify-center p-5 rounded-sm bg-orange"
@@ -165,10 +175,188 @@
                 >Add to Cart</span
               >
             </button>
+          </div>
+        </template>
+      </section>
+      <svg
+        class="w-full h-8 transform lg:h-20 -scale-1"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          fill="#ffffff"
+        ></path>
+      </svg>
+      <!-- *Order Now* -->
+      <section class="p-4 bg-white lg:p-10">
+        <h2 class="mb-4 lg:mb-10">Order Now</h2>
+        <section class="grid max-w-5xl gap-10 mx-auto grid-cols-fit" id="order">
+          <template id="order-template">
+            <div
+              class="grid gap-2 px-4 pt-4 overflow-hidden text-center shadow-2xl flex-0 justify-items-center bg-red hover:shadow-md bezier"
+            >
+              <h3 id="name" class="text-white"></h3>
+              <p
+                id="price"
+                class="text-2xl font-bold text-white font-heading"
+              ></p>
+              <div class="flex justify-center">
+                <p
+                  class="flex items-center justify-center w-8 h-8 text-3xl text-white transition-colors border-2 border-white border-solid cursor-pointer hover:bg-white hover:text-orange"
+                  role="button"
+                  aria-label="Remove one Veggie Ramen from your count."
+                >
+                  -
+                </p>
+                <label for="number"
+                  ><input
+                    class="w-8 h-8 mx-5 text-2xl text-center bg-white rounded-full text-red font-heading"
+                    type="number"
+                    id="number"
+                    min="1"
+                    max="8"
+                    value="1"
+                /></label>
+                <p
+                  class="flex items-center justify-center w-8 h-8 text-3xl text-white transition-colors border-2 border-white border-solid cursor-pointer hover:bg-white hover:text-orange"
+                  role="button"
+                  aria-label="Remove one Veggie Ramen from your count."
+                >
+                  +
+                </p>
+              </div>
+
+              <button class="btn-primary">ADD TO CART</button>
+              <img src="" alt="" class="self-end" />
+            </div>
           </template>
         </section>
-      </div>
-    </div>
+      </section>
+      <section id="contact" class="relative py-10 bg-red">
+        <h2 class="mb-10 text-white">Contact</h2>
+        <!-- *Location* -->
+        <section
+          class="grid max-w-5xl grid-cols-1 gap-4 p-4 mx-auto text-center bg-white place-items-center rounded-s lg:grid-cols-2"
+        >
+          <img
+            src="./assets/images/map.png"
+            alt="map location of Keiko Ramen"
+            class="object-cover h-full"
+          />
+          <div class="grid justify-center w-full gap-2 text-darkOrange">
+            <h2>Phone</h2>
+            <p class="text-xl text-black font-heading">(123)555-1234</p>
+            <h2>Location</h2>
+            <p class="grid text-xl text-black font-heading">
+              <span>40 Washington Square S</span><span>New York, NY 10012</span>
+            </p>
+            <h2>Hours</h2>
+            <p class="grid text-xl text-black font-heading">
+              <span>Mon-Fri 11am - midnight</span
+              ><span>Sat &amp; Sun 11am - 2am</span>
+            </p>
+          </div>
+        </section>
+        <!-- *SUBSCRIBE* -->
+        <section
+          class="grid justify-center max-w-5xl mx-auto mt-10 text-center md:flex"
+        >
+          <div class="relative w-full">
+            <img
+              src="./assets/images/subscribe.png"
+              alt="subscribe for deals and offers"
+              class="hidden w-full lg:block"
+            />
+            <h3 class="text-white lg:hidden">
+              Subscribe for<br />deals &amp; offers!
+            </h3>
+            <div class="grid justify-center lg:absolute email">
+              <div class="flex">
+                <form class="grid gap-2">
+                  <label for="email" class="text-xl text-white"
+                    >Enter your email<br /><input
+                      type="email"
+                      class="p-2"
+                      aria-label="your email address"
+                      aria-required="true"
+                      name="email_address"
+                      placeholder="keiko@ramen.com"
+                      value=""
+                      id="email" /></label
+                  ><button
+                    class="border-2 border-red btn-primary"
+                    data-element="submit"
+                    type="submit"
+                  >
+                    Subscribe
+                  </button>
+                  <p class="hidden"><br /></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- *SOCIALS* -->
+        <footer class="max-w-sm mx-auto">
+          <div class="flex my-4 justify-evenly">
+            <a
+              href="https://www.facebook.com/"
+              aria-label="facebook"
+              class="w-10 ml-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg
+                class="transition-colors bg-white rounded-full shadow-lg fill-current icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.017 26.4765L32.7949 22.1406H27.9314V19.3269C27.9314 18.1407 28.6108 16.9845 30.789 16.9845H33V13.2929C33 13.2929 30.9936 13 29.0752 13C25.0701 13 22.4521 15.0767 22.4521 18.8361V22.1406H18V26.4765H22.4521V36.9583H27.9314V26.4765H32.017Z"
+                  fill="current"
+                ></path></svg></a
+            ><a
+              href="https://twitter.com/"
+              aria-label="twitter"
+              class="w-10 ml-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg
+                class="transition-colors bg-white rounded-full shadow-lg fill-current icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M33.9349 20.4781C33.9498 20.6747 33.9498 20.8712 33.9498 21.0677C33.9498 27.062 29.138 33.9688 20.3435 33.9688C17.6341 33.9688 15.1172 33.2247 13 31.9333C13.385 31.9753 13.7551 31.9894 14.1548 31.9894C16.3904 31.9894 18.4484 31.2735 20.0918 30.0521C17.9894 30.01 16.2276 28.7045 15.6205 26.9076C15.9167 26.9497 16.2128 26.9778 16.5237 26.9778C16.9531 26.9778 17.3825 26.9216 17.7822 26.8234C15.591 26.4022 13.9475 24.5773 13.9475 22.3733V22.3172C14.5841 22.6541 15.3245 22.8646 16.1091 22.8927C14.821 22.0785 13.9771 20.6887 13.9771 19.1164C13.9771 18.2742 14.214 17.5021 14.6286 16.8282C16.9826 19.5797 20.5212 21.3765 24.489 21.5731C24.415 21.2362 24.3706 20.8853 24.3706 20.5343C24.3706 18.0355 26.5026 16 29.1527 16C30.5296 16 31.7733 16.5475 32.6468 17.4319C33.7276 17.2354 34.764 16.8563 35.682 16.3369C35.3266 17.3898 34.5715 18.2742 33.5796 18.8357C34.5419 18.7375 35.4747 18.4847 36.3334 18.1338C35.682 19.0322 34.8677 19.8323 33.9349 20.4781Z"
+                  fill="current"
+                ></path></svg></a
+            ><a
+              href="https://www.instagram.com/"
+              aria-label="instagram"
+              class="w-10 ml-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg
+                class="transition-colors bg-white rounded-full shadow-lg fill-current icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.1698 18.8365C21.1497 18.8365 17.9071 21.579 17.9071 24.979C17.9071 28.379 21.1497 31.1215 25.1698 31.1215C29.1899 31.1215 32.4325 28.379 32.4325 24.979C32.4325 21.579 29.1899 18.8365 25.1698 18.8365ZM25.1698 28.9725C22.5719 28.9725 20.4481 27.1815 20.4481 24.979C20.4481 22.7765 22.5656 20.9856 25.1698 20.9856C27.774 20.9856 29.8915 22.7765 29.8915 24.979C29.8915 27.1815 27.7677 28.9725 25.1698 28.9725ZM34.4236 18.5852C34.4236 19.3818 33.6651 20.0179 32.7296 20.0179C31.7878 20.0179 31.0356 19.3764 31.0356 18.5852C31.0356 17.794 31.7941 17.1525 32.7296 17.1525C33.6651 17.1525 34.4236 17.794 34.4236 18.5852ZM39.2338 20.0393C39.1263 18.1201 38.608 16.4201 36.9456 15.0194C35.2895 13.6188 33.2795 13.1804 31.0103 13.0842C28.6716 12.9719 21.6617 12.9719 19.323 13.0842C17.0601 13.1751 15.0501 13.6135 13.3877 15.0141C11.7253 16.4147 11.2133 18.1148 11.0996 20.034C10.9668 22.012 10.9668 27.9407 11.0996 29.9187C11.207 31.8379 11.7253 33.5379 13.3877 34.9386C15.0501 36.3392 17.0538 36.7776 19.323 36.8738C21.6617 36.9861 28.6716 36.9861 31.0103 36.8738C33.2795 36.7829 35.2895 36.3446 36.9456 34.9386C38.6017 33.5379 39.12 31.8379 39.2338 29.9187C39.3665 27.9407 39.3665 22.0173 39.2338 20.0393ZM36.2124 32.041C35.7194 33.0889 34.7649 33.8961 33.5197 34.3184C31.655 34.9439 27.2304 34.7996 25.1698 34.7996C23.1092 34.7996 18.6783 34.9386 16.8199 34.3184C15.5811 33.9014 14.6266 33.0942 14.1273 32.041C13.3877 30.464 13.5584 26.7218 13.5584 24.979C13.5584 23.2362 13.394 19.4887 14.1273 17.917C14.6203 16.8692 15.5747 16.0619 16.8199 15.6396C18.6846 15.0141 23.1092 15.1584 25.1698 15.1584C27.2304 15.1584 31.6614 15.0194 33.5197 15.6396C34.7586 16.0566 35.713 16.8638 36.2124 17.917C36.9519 19.494 36.7813 23.2362 36.7813 24.979C36.7813 26.7218 36.9519 30.4693 36.2124 32.041Z"
+                  fill="current"
+                ></path></svg
+            ></a>
+          </div>
+        </footer>
+      </section>
     </div>
     <script type="module">
       import { loadProducts } from './js/load-products.js'
