@@ -32,6 +32,12 @@
     />
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/use-shopping-cart@3.0.0-beta.3/dist/core.umd.js"
+    ></script>
+    <script src="js/checkout.js" />
     <script defer src="js/nav-menu.js"></script>
 
     <script
@@ -54,7 +60,7 @@
   <body>
     <!-- *HEADER* -->
     <header
-      class="fixed top-0 z-20 flex items-center justify-between w-full gap-4 p-4 text-white bg-darkRed"
+      class="fixed top-0 z-20 flex items-center justify-between w-full p-4 space-x-4 text-white bg-darkRed"
     >
       <a href="#">
         <img
@@ -63,11 +69,11 @@
           class="w-16"
         />
       </a>
-      <section class="flex items-center justify-end w-full gap-8">
+      <section class="flex items-center justify-end w-full space-x-8">
         <nav id="nav-menu" class="hidden lg:flex">
           <ul
             id="nav-list"
-            class="absolute inset-0 z-40 grid w-full h-64 gap-8 bg-opacity-90 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
+            class="absolute inset-0 z-40 grid w-full h-64 gap-8 bg-opacity-90 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative lg:space-x-8"
           >
             <li>
               <a
@@ -127,7 +133,7 @@
     <div
       role="img"
       aria-label="2 bowls of ramen being presented"
-      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover -top-20 2xl:bg-center"
+      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover 2xl:bg-center"
       style="background-image: url(./assets/images/bg.jpg)"
     >
       <section
@@ -138,34 +144,22 @@
       </section>
     </div>
 
-    <div class="clear-top bg-red">
-      <svg
-        class="absolute w-full h-8 transform lg:h-20 lg:-top-20 -top-8 -scale-1"
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          fill="#A50022"
-        ></path>
-      </svg>
+    <div class="clear-top animate-down">
       <section
         id="menu"
-        class="grid max-w-5xl gap-2 p-4 mx-auto lg:py-10 lg:px-0"
+        class="relative grid grid-cols-1 gap-2 p-4 bg-red md:py-10 md:px-0"
       >
         <h2 class="mb-4 text-white lg:mb-10">Menu</h2>
         <template id="menu-template">
           <div
-            class="flex transition-transform duration-75 ease-linear transform bg-white rounded-sm lg:hover:shadow-none lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white shadow-inset"
+            class="grid max-w-5xl mx-auto transition-transform duration-75 ease-linear transform bg-white rounded-sm sm:flex lg:hover:shadow-none lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white shadow-inset"
           >
             <div
               class="grid items-center justify-between w-full gap-4 p-4 border-r-2 border-white lg:flex product"
             >
               <h3
                 id="name"
-                class="w-3/12 text-2xl whitespace-nowrap md:whitespace-pre-wrap"
+                class="w-3/12 text-xl sm:text-2xl whitespace-nowrap lg:whitespace-pre-wrap"
               ></h3>
               <p id="desc"></p>
               <p id="price" class="text-2xl font-heading"></p>
@@ -182,20 +176,9 @@
           </div>
         </template>
       </section>
-      <svg
-        class="w-full h-8 transform lg:h-20 -scale-1"
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          fill="#ffffff"
-        ></path>
-      </svg>
+
       <!-- *Order Now* -->
-      <section class="p-4 bg-white lg:p-10">
+      <section class="p-4 bg-white lg:p-10 animate-left">
         <h2 class="mb-4 lg:mb-10">Order Now</h2>
         <section class="grid max-w-5xl gap-10 mx-auto grid-cols-fit" id="order">
           <template id="order-template">
@@ -239,7 +222,7 @@
           </template>
         </section>
       </section>
-      <section id="contact" class="relative py-10 bg-red">
+      <section id="contact" class="relative py-10 bg-red fade-up">
         <h2 class="mb-10 text-white">Contact</h2>
         <!-- *Location* -->
         <section

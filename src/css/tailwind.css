@@ -18646,7 +18646,7 @@ body {
 
 .clear-top {
   position: relative;
-  top: calc(100vh - 5rem);
+  top: calc(100vh - 8rem);
 }
 
 h1, h2, h3, h4{
