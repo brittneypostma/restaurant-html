@@ -1,10 +1,6 @@
-const menu = document.querySelector('.menu-icon')
-const nav = document.querySelector('.nav-menu')
+const toggle = document.querySelector('#nav-toggle')
+const nav = document.querySelector('#nav-menu')
 
-menu.addEventListener('click', () => {
-  //Animate Links
-  nav.classList.toggle('open-nav')
-
-  //Hamburger Animation
-  menu.classList.toggle('transform')
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('hidden')
 })

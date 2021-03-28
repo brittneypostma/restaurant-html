@@ -64,8 +64,11 @@
         />
       </a>
       <section class="flex items-center justify-end w-full gap-8">
-        <nav class="hidden lg:flex">
-          <ul class="flex items-center gap-8">
+        <nav id="nav-menu" class="hidden lg:flex">
+          <ul
+            id="nav-list"
+            class="absolute inset-0 z-40 grid w-full h-64 gap-8 bg-opacity-90 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
+          >
             <li>
               <a
                 href="#menu"
@@ -100,8 +103,9 @@
           </p>
         </a>
         <button
-          aria-label="menu"
-          class="w-12 p-0 text-white bg-transparent cursor-pointer lg:hidden"
+          id="nav-toggle"
+          aria-label="toggle navigation menu"
+          class="z-50 w-12 p-0 text-white bg-transparent cursor-pointer lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +131,7 @@
       style="background-image: url(./assets/images/bg.jpg)"
     >
       <section
-        class="fixed top-0 grid w-full h-full gap-10 text-white place-items-center place-content-center text-shadow"
+        class="fixed top-0 grid w-full h-full gap-10 text-white bg-black bg-opacity-40 place-items-center place-content-center text-shadow"
       >
         <h1 class="text-5xl lg:text-8xl">Keiko Ramen</h1>
         <h2 class="font-body">Noodles & Stuff</h2>
