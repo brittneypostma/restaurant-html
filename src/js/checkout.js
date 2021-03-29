@@ -1,15 +1,73 @@
+// import UseShoppingCartCore from 'https://unpkg.com/use-shopping-cart@3.0.0-beta.3/dist/core.umd.js'
 
+//test api key
+const testApiKey = "pk_test_51H3WzVA5gnA92gtxXNCulxWBYSBrAt4xvuuYkv6Tp5uvlQl1ZPZj3uHIX0PNCSDjdP7eOv7o46nlKZzhuvoowggt00VRkn0FMf";
+console.log(UseShoppingCartCore)
+let store = UseShoppingCartCore.createShoppingCartStore({
+  stripe: testApiKey,
+  mode: "client-only",
+  successUrl: "https://success.html",
+  cancelUrl: "https://index.html",
+});
 
-// test api key
-const testApiKey = "pk_test_MAQ6vJsaQH6lTjJQc07plIB000QCr569IB";
-// let store = UseShoppingCartCore.createShoppingCartStore({
-//   stripe: testApiKey,
-//   mode: "client-only",
-//   successUrl: "https://twitter.com/dayhaysoos",
-//   cancelUrl: "https://stripe.com",
-// });
+let persistor = UseShoppingCartCore.createPersistedStore(store);
 
-// let persistor = UseShoppingCartCore.createPersistedStore(store);
+// import stripe
+// pull products from stripe
+// load products from stripe
+// update cart with usc
+// redirect to stripe
+
+const products = [
+  {
+    "id": 1,
+    "categories": ["ramen"],
+    "name": "Veggie Ramen",
+    "desc": "Bean sprouts bamboo slices Tokyo kamaboko Kumamoto toasted sesame seeds Nagoya leek bean sprouts scallions leek minced garlic curry bean sprouts ginger.",
+    "price": "12.00",
+    "image": "veggie"
+  },
+  {
+    "id": 2,
+    "categories": ["ramen"],
+    "name": "Shrimp Ramen",
+    "desc": "Bean sprouts bamboo slices Tokyo kamaboko Kumamoto toasted sesame seeds Nagoya leek bean sprouts scallions leek minced garlic curry bean sprouts ginger.",
+    "price": "15.00",
+    "image": "shrimp"
+  },
+  {
+    "id": 3,
+    "categories": ["ramen"],
+    "name": "Protein Ramen",
+    "desc": "Bean sprouts bamboo slices Tokyo kamaboko Kumamoto toasted sesame seeds Nagoya leek bean sprouts scallions leek minced garlic curry bean sprouts ginger.",
+    "price": "15.00",
+    "image": "protein"
+  },
+  {
+    "id": 4,
+    "categories": ["ramen"],
+    "name": "Pork Bacon Ramen",
+    "desc": "Bean sprouts bamboo slices Tokyo kamaboko Kumamoto toasted sesame seeds Nagoya leek bean sprouts scallions leek minced garlic curry bean sprouts ginger.",
+    "price": "12.00",
+    "image": "pork"
+  },
+  {
+    "id": 5,
+    "categories": ["ramen"],
+    "name": "Chicken Ramen",
+    "desc": "Bean sprouts bamboo slices Tokyo kamaboko Kumamoto toasted sesame seeds Nagoya leek bean sprouts scallions leek minced garlic curry bean sprouts ginger.",
+    "price": "12.00",
+    "image": "chicken"
+  },
+  {
+    "id": 6,
+    "categories": ["ramen"],
+    "name": "Spicy Beef Ramen",
+    "desc": "Bean sprouts bamboo slices Tokyo kamaboko Kumamoto toasted sesame seeds Nagoya leek bean sprouts scallions leek minced garlic curry bean sprouts ginger.",
+    "price": "12.00",
+    "image": "beef"
+  }
+]
 
 // const product = {
 //   name: "Bananas",
@@ -28,33 +86,40 @@ const testApiKey = "pk_test_MAQ6vJsaQH6lTjJQc07plIB000QCr569IB";
 //   currency: "USD",
 // };
 
-// function render() {
-//   if (!store.getState().bootstrapped) {
-//     document.getElementById("cartDetails").innerHTML = "loading . . .";
-//   }
 
-//   document.getElementById("cartDetails").innerHTML = JSON.stringify(
-//     store.getState().cartDetails,
-//     null,
-//     2
-//   );
-// }
-// render();
+const {
+  addItem,
+  checkoutSingleItem,
+  clearCart,
+  decrementItem,
+  handleCartClick,
+  handleCloseCart,
+  incrementItem,
+  redirectToCheckout,
+  removeItem,
+  formatCurrencyString,
+} = UseShoppingCartCore.actions;
 
-// store.subscribe(render);
+let numberOfItems = Object.keys(JSON.stringify(store.getState().cartDetails)).length === 0 ? JSON.stringify(store.getState().cartDetails) : 0
 
-// const {
-//   addItem,
-//   checkoutSingleItem,
-//   clearCart,
-//   decrementItem,
-//   handleCartClick,
-//   handleCloseCart,
-//   incrementItem,
-//   redirectToCheckout,
-//   removeItem,
-//   formatCurrencyString,
-// } = UseShoppingCartCore.actions;
+function render() {
+  if (!store.getState().bootstrapped) {
+    document.getElementById("cart-details").innerHTML = "?";
+  }
+
+  document.getElementById("cart-details").innerHTML = numberOfItems;
+
+
+}
+render();
+
+store.subscribe(render);
+
+
+
+function addItemToCart(item) {
+
+}
 
 // document
 //   .getElementById("addBananasToCart")

@@ -10,15 +10,6 @@ gsap.from('.animate-down', {
   y: '-10vh',
 })
 
-gsap.from('.animate-right', {
-  scrollTrigger: {
-    trigger: '.animate-right',
-    toggleActions: 'restart reset restart pause',
-  },
-  duration: 1,
-  opacity: 0,
-  x: '-100vw',
-})
 
 gsap.from('.animate-left', {
   scrollTrigger: {

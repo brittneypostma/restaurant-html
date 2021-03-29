@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="" />
     <meta property="twitter:url" content="" />
-    <meta name="twitter:title" content="Tempate" />
+    <meta name="twitter:title" content="Template" />
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="" />
     <!-- Site -->
@@ -32,14 +32,28 @@
     />
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <!-- *CART* -->
+    <!-- !why does this need to be here? -->
+    <script>
+      window.process = {
+        env: {
+          NODE_ENV: 'production',
+        },
+      }
+    </script>
+    <script
+      defer
+      src="https://unpkg.com/redux@latest/dist/redux.min.js"
+    ></script>
     <script
       crossorigin
       src="https://unpkg.com/use-shopping-cart@3.0.0-beta.3/dist/core.umd.js"
     ></script>
-    <script src="js/checkout.js" />
+    <!-- *END CART* -->
+
     <script defer src="js/nav-menu.js"></script>
 
+    <!-- *GSAP* -->
     <script
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
@@ -103,6 +117,7 @@
         >
           <img src="./assets/images/cart.png" alt="" />
           <p
+            id="cart-details"
             class="absolute w-6 h-6 leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red"
           >
             0
@@ -191,13 +206,13 @@
                 class="text-2xl font-bold text-white font-heading"
               ></p>
               <div class="flex justify-center">
-                <p
+                <button
+                  id="minus-btn"
                   class="flex items-center justify-center w-8 h-8 text-3xl text-white transition-colors border-2 border-white border-solid cursor-pointer hover:bg-white hover:text-orange"
-                  role="button"
-                  aria-label="Remove one Veggie Ramen from your count."
+                  aria-label=""
                 >
                   -
-                </p>
+                </button>
                 <label for="number"
                   ><input
                     class="w-8 h-8 mx-5 text-2xl text-center bg-white rounded-full text-red font-heading"
@@ -207,13 +222,13 @@
                     max="8"
                     value="1"
                 /></label>
-                <p
+                <button
+                  id="add-btn"
                   class="flex items-center justify-center w-8 h-8 text-3xl text-white transition-colors border-2 border-white border-solid cursor-pointer hover:bg-white hover:text-orange"
-                  role="button"
-                  aria-label="Remove one Veggie Ramen from your count."
+                  aria-label=""
                 >
                   +
-                </p>
+                </button>
               </div>
 
               <button class="btn-primary">ADD TO CART</button>
@@ -345,9 +360,12 @@
         </footer>
       </section>
     </div>
+
+    <!-- *Scripts* -->
     <script type="module">
       import { loadProducts } from './js/load-products.js'
       loadProducts()
     </script>
+    <script src="js/checkout.js" />
   </body>
 </html>
