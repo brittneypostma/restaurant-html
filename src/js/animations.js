@@ -1,9 +1,12 @@
-gsap.registerPlugin(CSSRule, ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
+
+ScrollTrigger.defaults({
+  toggleActions: "restart pause resume pause"
+});
 
 gsap.from('.animate-down', {
   scrollTrigger: {
     trigger: '.animate-down',
-    toggleActions: 'restart reset restart pause',
   },
   duration: 1,
   opacity: 0.5,
@@ -14,17 +17,25 @@ gsap.from('.animate-down', {
 gsap.from('.animate-left', {
   scrollTrigger: {
     trigger: '.animate-left',
-    toggleActions: 'restart reset restart pause',
   },
   duration: 1,
   opacity: 0,
   x: '100vw',
 })
 
+
+gsap.from('.animate-right', {
+  scrollTrigger: {
+    trigger: '.animate-right',
+  },
+  duration: 1,
+  opacity: 0,
+  x: '-100vw',
+})
+
 gsap.from('.fade-up', {
   scrollTrigger: {
     trigger: '.fade-up',
-    toggleActions: 'restart reset reset pause',
   },
   duration: 1,
   opacity: 0,

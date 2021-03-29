@@ -60,10 +60,6 @@
     ></script>
     <script
       defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CSSRulePlugin.min.js"
-    ></script>
-    <script
-      defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
     ></script>
     <script defer src="js/animations.js"></script>
@@ -193,9 +189,12 @@
       </section>
 
       <!-- *Order Now* -->
-      <section class="p-4 bg-white lg:p-10 animate-left">
+      <section class="p-4 bg-white lg:p-10">
         <h2 class="mb-4 lg:mb-10">Order Now</h2>
-        <section class="grid max-w-5xl gap-10 mx-auto grid-cols-fit" id="order">
+        <section
+          class="grid max-w-5xl gap-10 mx-auto grid-cols-fit animate-left"
+          id="order"
+        >
           <template id="order-template">
             <div
               class="grid gap-2 px-4 pt-4 overflow-hidden text-center shadow-2xl flex-0 justify-items-center bg-red hover:shadow-md bezier"
@@ -237,11 +236,11 @@
           </template>
         </section>
       </section>
-      <section id="contact" class="relative py-10 bg-red fade-up">
+      <section id="contact" class="relative py-10 bg-red">
         <h2 class="mb-10 text-white">Contact</h2>
         <!-- *Location* -->
         <section
-          class="grid max-w-5xl grid-cols-1 gap-4 p-4 mx-auto text-center bg-white place-items-center rounded-s lg:grid-cols-2"
+          class="grid max-w-5xl grid-cols-1 gap-4 p-4 mx-auto text-center bg-white place-items-center rounded-s lg:grid-cols-2 animate-right"
         >
           <img
             src="./assets/images/map.png"
@@ -264,7 +263,7 @@
         </section>
         <!-- *SUBSCRIBE* -->
         <section
-          class="grid justify-center max-w-5xl mx-auto mt-10 text-center md:flex"
+          class="grid justify-center max-w-5xl mx-auto mt-10 text-center fade-up md:flex"
         >
           <div class="relative w-full">
             <img
