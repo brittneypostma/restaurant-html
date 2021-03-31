@@ -1,7 +1,7 @@
 module.exports = {
   purge:  [
-    './src/**/*.html',
-    './src/**/*.js',
+    './src/*.html',
+    './src/js/*.js',
     ]
 ,
   darkMode: false, // or 'media' or 'class'

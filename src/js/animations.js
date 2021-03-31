@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.defaults({
-  toggleActions: "restart pause resume pause"
+  toggleActions: "play complete none none"
 });
 
 gsap.from('.animate-down', {
@@ -37,7 +37,7 @@ gsap.from('.fade-up', {
   scrollTrigger: {
     trigger: '.fade-up',
   },
-  duration: 1,
+  duration: 0.75,
   opacity: 0,
   y: '10vh',
 })

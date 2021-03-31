@@ -2,9 +2,12 @@
   "name": "restaurant",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/index.js",
   "scripts": {
-    "build": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/css/styles.css -o ./public/tailwind.css",
+    "build:css": "postcss ./src/css/styles.css > ./public/tailwind.css",
+    "build:html": "html-minifier --input-dir src --output-dir public --file-ext html --remove-comments --collapse-whitespace",
+    "build:js": "uglifyjs ./src/js/* -o ./public/js/*",
+    "build": "npm run build:css && npm run build:html && npm run build:js",
     "dev": "nodemon -x postcss ./src/css/styles.css -o ./src/css/tailwind.css -w tailwind.config.js -w ./src/css/styles.css"
   },
   "repository": {
@@ -20,10 +23,14 @@
   "homepage": "https://github.com/brittneypostma/template#readme",
   "devDependencies": {
     "autoprefixer": "^10.2.5",
+    "cssnano": "^4.1.10",
+    "html-minifier": "^4.0.0",
+    "minify": "^7.0.1",
     "nodemon": "^2.0.7",
     "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.0.4",
+    "uglify-js": "^3.13.3"
   },
   "dependencies": {}
 }
