@@ -4,7 +4,7 @@
   "description": "",
   "main": "js/index.js",
   "scripts": {
-    "build:css": "postcss ./src/css/styles.css > ./public/tailwind.css",
+    "build:css": "postcss ./src/css/styles.css > ./public/css/tailwind.css",
     "build:html": "html-minifier --input-dir src --output-dir public --file-ext html --remove-comments --collapse-whitespace",
     "build:js": "uglifyjs ./src/js/index.js -o ./public/js/index.js -c -m",
     "build": "npm run build:css && npm run build:html && npm run build:js",
