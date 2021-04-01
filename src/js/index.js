@@ -1,18 +1,53 @@
-import minify from 'minify';
-const options = {
-  html: {
-      collapseWhitespace: true,
-      removeAttributeQuotes: false,
-      removeComments: true
-  },
-  js: {
-      ecma: 5,
-  },
-  img: {
-      maxSize: 4096,
-  },
-};
+// individual js files are exported and
+// import everything here
 
-minify('./src/*', options)
-    .then(console.log)
-    .catch(console.error);
+import toggleNav from './nav-menu.js'
+
+toggleNav()
+
+
+//* Animations *//
+
+gsap.registerPlugin(ScrollTrigger)
+
+ScrollTrigger.defaults({
+  toggleActions: "play complete none none"
+});
+
+gsap.from('.animate-down', {
+  scrollTrigger: {
+    trigger: '.animate-down',
+  },
+  duration: 1,
+  opacity: 0.5,
+  y: '-10vh',
+})
+
+
+gsap.from('.animate-left', {
+  scrollTrigger: {
+    trigger: '.animate-left',
+  },
+  duration: 1,
+  opacity: 0,
+  x: '100vw',
+})
+
+
+gsap.from('.animate-right', {
+  scrollTrigger: {
+    trigger: '.animate-right',
+  },
+  duration: 1,
+  opacity: 0,
+  x: '-100vw',
+})
+
+gsap.from('.fade-up', {
+  scrollTrigger: {
+    trigger: '.fade-up',
+  },
+  duration: 0.75,
+  opacity: 0,
+  y: '10vh',
+})

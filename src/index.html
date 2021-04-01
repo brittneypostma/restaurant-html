@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
     <link rel="manifest" href="./assets/site.webmanifest" />
     <!-- Styles -->
-    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="../public/tailwind.min.css" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -51,7 +51,7 @@
     ></script>
     <!-- *END CART* -->
 
-    <script defer src="js/nav-menu.js"></script>
+    <!-- <script defer src="js/nav-menu.js"></script> -->
 
     <!-- *GSAP* -->
     <script
@@ -62,7 +62,8 @@
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
     ></script>
-    <script defer src="js/animations.js"></script>
+    <!-- <script type="module" src="js/animations.js"></script> -->
+    <script type="module" src="./js/index.js"></script>
 
     <title>Keiko Ramen</title>
   </head>
@@ -80,10 +81,10 @@
         />
       </a>
       <section class="flex items-center justify-end w-full space-x-8">
-        <nav id="nav-menu" class="hidden lg:flex">
+        <nav id="nav-menu" class="hidden transition-transform lg:flex">
           <ul
             id="nav-list"
-            class="absolute inset-0 z-40 grid w-full h-64 gap-8 bg-opacity-90 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
+            class="absolute inset-0 z-40 grid w-full h-64 gap-8 transition-transform bg-opacity-90 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
           >
             <li>
               <a
