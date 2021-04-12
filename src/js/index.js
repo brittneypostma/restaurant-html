@@ -2,8 +2,10 @@
 // import everything here
 
 import toggleNav from './nav-menu.js'
+import toggleCart from './cart.js'
 
 toggleNav()
+toggleCart()
 
 
 //* Animations *//
