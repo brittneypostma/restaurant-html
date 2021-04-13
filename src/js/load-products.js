@@ -1,5 +1,3 @@
-const {addItem} = UseShoppingCartCore.actions
-
 function getItemDetails(item) {
   return {
     name: item.name,
