@@ -114,7 +114,7 @@
         >
           <img src="./assets/images/cart.png" alt="" />
           <p
-            id="cart-details"
+            id="items"
             class="absolute w-6 h-6 font-bold leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red font-heading"
           ></p>
         </div>
@@ -171,9 +171,11 @@
           </h2>
           <button id="" class="text-2xl btn-primary">Go get more ramen</button>
         </div>
-        <ul class="">
-          <li></li>
-        </ul>
+        <template id="cart-template">
+          <ul id="cart-list" class="grid grid-cols-1 gap-4">
+            <li></li>
+          </ul>
+        </template>
       </section>
     </header>
     <!-- *BG IMAGE* -->
@@ -210,7 +212,7 @@
               ></h3>
               <p id="desc"></p>
               <p id="price" class="text-2xl font-heading"></p>
-              <div id="numOfItems" class="flex items-center">
+              <!-- <div id="numOfItems" class="flex items-center">
                 <button
                   id="minus"
                   class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
@@ -233,7 +235,7 @@
                 >
                   +
                 </button>
-              </div>
+              </div> -->
             </div>
 
             <button
@@ -242,7 +244,7 @@
             >
               <img src="./assets/images/cart.png" alt="" />
               <span
-                class="text-sm text-white whitespace-nowrap md:text-lg font-body"
+                class="text-xl tracking-wider text-white whitespace-nowrap font-body"
                 >Add to Cart</span
               >
             </button>

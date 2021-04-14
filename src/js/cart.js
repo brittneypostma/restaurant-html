@@ -2,6 +2,7 @@
 const cart = document.querySelector('#cart')
 const back = document.querySelector('#back')
 const cartItems = document.querySelector('#cart-items')
+const cartList = document.querySelector('#cart-list')
 
 cart.addEventListener('click', () => {
   cartItems.classList.toggle('hidden')
@@ -20,6 +21,9 @@ let store = UseShoppingCartCore.createShoppingCartStore({
 })
 
 let persistor = UseShoppingCartCore.createPersistedStore(store)
+
+
+console.log(store.getState().cartDetails)
 
 const {
   addItem,
@@ -41,28 +45,34 @@ let numberOfItems =
 
 function render() {
   if (!store.getState().bootstrapped) {
-    document.getElementById('cart-details').innerHTML = '?'
+    document.querySelector('#items').innerHTML = '?'
   }
 
-  document.getElementById('cart-details').innerHTML = numberOfItems
+  document.querySelector('#items').innerHTML = numberOfItems
 }
 render()
 
 store.subscribe(render)
 
-const noItems = document.getElementById('no-items')
+// const product = {
+//   name: "Bananas",
+//   description: "Yummy yellow fruit",
+//   id: "sku_J4vwzv3Z8kx5JD",
+//   price: 400,
+//   currency: "USD",
+//   image: "https://my-image.com/banana.jpg",
+// };
 
+const noItems = document.getElementById('no-items')
+// const addToCart = document.querySelectorAll('#addToCart')
+// addToCart.forEach(btn => {
+//   btn.addEventListener('click', () => {
+//   store.dispatch(addItem(product))
+// })
+// })
 
 if (cartItems.className === 'hidden' && numberOfItems === 0) {
   noItems.style.display = 'none'
-  // const menu = document.querySelector('#menu')
-  // const order = document.querySelector('#order')
-  // const prices = await fetch('/.netlify/functions/get-products')
-  //   .then(res => res.json())
-  //   .catch(err => console.error(err))
-
-  // prices.data.forEach(price => {
-  //   menu.appendChild(createMenuTemplate(price))
-  //   order.appendChild(createOrderTemplate(price))
-  // })
-} 
+} else {
+  // const items =
+}

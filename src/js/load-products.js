@@ -1,6 +1,6 @@
 function getItemDetails(item) {
   return {
-    name: item.name,
+    name: item.product.name,
     description: item.product.description,
     id: item.id,
     price: item.unit_amount,
@@ -16,23 +16,24 @@ function createMenuTemplate(item) {
   menu.querySelector('#desc').innerText = item.product.description
   menu.querySelector('#price').innerText = `$${(Math.round(item.unit_amount) / 100).toFixed(2)}`
 
-  let quantity = 1
-  const numOfItems = menu.querySelector('#numOfItems')
-  numOfItems.querySelector('#quantity').value = quantity
-  const minus = numOfItems.querySelector('#minus')
-  const plus = numOfItems.querySelector('#plus')
-  minus.addEventListener('click', () => {
-    if (quantity !== 1) {
-      quantity--
-      numOfItems.querySelector('#quantity').value = quantity
-    }
-    return quantity
-  })
-  plus.addEventListener('click', () => {
-    quantity++
-    numOfItems.querySelector('#quantity').value = quantity
-  })
+//   let quantity = 1
+// const numOfItems = menu.querySelector('#numOfItems')
+// numOfItems.querySelector('#quantity').value = quantity
+// const minus = numOfItems.querySelector('#minus')
+// const plus = numOfItems.querySelector('#plus')
+// minus.addEventListener('click', () => {
+//   if (quantity !== 1) {
+//     quantity--
+//     numOfItems.querySelector('#quantity').value = quantity
+//   }
+//   return quantity
+// })
+// plus.addEventListener('click', () => {
+//   quantity++
+//   numOfItems.querySelector('#quantity').value = quantity
+// })
 
+console.log(item)
   menu.querySelector('#addToCart').addEventListener('click', () => {
     store.dispatch(addItem(getItemDetails(item)))
   })
