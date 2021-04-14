@@ -33,7 +33,6 @@ function createMenuTemplate(item) {
 //   numOfItems.querySelector('#quantity').value = quantity
 // })
 
-console.log(item)
   menu.querySelector('#addToCart').addEventListener('click', () => {
     store.dispatch(addItem(getItemDetails(item)))
   })

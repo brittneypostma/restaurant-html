@@ -62,7 +62,13 @@
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
     ></script>
-    <!-- <script type="module" src="js/animations.js"></script> -->
+
+    <script type="module">
+      import { loadProducts } from './js/load-products.js'
+      loadProducts()
+    </script>
+    <script defer src="js/cart.js" />
+
     <script type="module" src="./js/index.js"></script>
 
     <title>Keiko Ramen</title>
@@ -77,7 +83,7 @@
         <img
           src="./assets/images/logo.png"
           alt="Keiko Ramen logo"
-          class="w-16"
+          class="w-20"
         />
       </a>
       <section class="flex items-center justify-end w-full space-x-8">
@@ -144,7 +150,7 @@
         id="cart-items"
       >
         <button
-          id="back"
+          id="close"
           class="absolute right-0 p-2 transition-colors hover:text-black"
         >
           <svg
@@ -169,7 +175,9 @@
           <h2 class="leading-snug">
             Oh the sadness, you don't have any ramen in your cart!
           </h2>
-          <button id="" class="text-2xl btn-primary">Go get more ramen</button>
+          <button id="close" class="text-2xl btn-primary">
+            Go get more ramen
+          </button>
         </div>
         <template id="cart-template">
           <ul id="cart-list" class="grid grid-cols-1 gap-4">
@@ -402,12 +410,5 @@
         </footer>
       </section>
     </div>
-
-    <!-- *Scripts* -->
-    <script type="module">
-      import { loadProducts } from './js/load-products.js'
-      loadProducts()
-    </script>
-    <script src="js/cart.js" />
   </body>
 </html>

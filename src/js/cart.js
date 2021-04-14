@@ -1,14 +1,16 @@
 // * Listen for cart open and close
 const cart = document.querySelector('#cart')
-const back = document.querySelector('#back')
+const close = document.querySelectorAll('#close')
 const cartItems = document.querySelector('#cart-items')
 const cartList = document.querySelector('#cart-list')
 
 cart.addEventListener('click', () => {
   cartItems.classList.toggle('hidden')
 })
-back.addEventListener('click', () => {
-  cartItems.classList.toggle('hidden')
+close.forEach(btn => {
+  btn.addEventListener('click', () => {
+    cartItems.classList.toggle('hidden')
+  })
 })
 
 // * Use Shopping Cart
@@ -21,9 +23,6 @@ let store = UseShoppingCartCore.createShoppingCartStore({
 })
 
 let persistor = UseShoppingCartCore.createPersistedStore(store)
-
-
-console.log(store.getState().cartDetails)
 
 const {
   addItem,
@@ -38,41 +37,34 @@ const {
   formatCurrencyString,
 } = UseShoppingCartCore.actions
 
+const items = document.querySelector('#items')
+
+const state = Object.keys(JSON.stringify(store.getState().cartDetails)) 
 let numberOfItems =
-  Object.keys(JSON.stringify(store.getState().cartDetails)).length === 0
-    ? JSON.stringify(store.getState().cartDetails)
-    : 0
+  state.length === 0
+    ? 0
+    : state.length 
+
 
 function render() {
   if (!store.getState().bootstrapped) {
-    document.querySelector('#items').innerHTML = '?'
+    items.innerHTML = '?'
   }
-
-  document.querySelector('#items').innerHTML = numberOfItems
+  items.innerHTML = numberOfItems
 }
 render()
 
 store.subscribe(render)
 
-// const product = {
-//   name: "Bananas",
-//   description: "Yummy yellow fruit",
-//   id: "sku_J4vwzv3Z8kx5JD",
-//   price: 400,
-//   currency: "USD",
-//   image: "https://my-image.com/banana.jpg",
-// };
+function loadCart() {
+  const noItems = document.getElementById('no-items')
 
-const noItems = document.getElementById('no-items')
-// const addToCart = document.querySelectorAll('#addToCart')
-// addToCart.forEach(btn => {
-//   btn.addEventListener('click', () => {
-//   store.dispatch(addItem(product))
-// })
-// })
-
-if (cartItems.className === 'hidden' && numberOfItems === 0) {
-  noItems.style.display = 'none'
-} else {
-  // const items =
+  if (cartItems.className === 'hidden' && numberOfItems === 0) {
+    noItems.style.display = 'none'
+    items.innerHTML = numberOfItems
+  } else {
+    items.innerHTML = numberOfItems
+  }
 }
+
+loadCart()
