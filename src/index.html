@@ -41,17 +41,14 @@
         },
       }
     </script>
-    <script
-      defer
-      src="https://unpkg.com/redux@latest/dist/redux.min.js"
-    ></script>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
     <script
       crossorigin
       src="https://unpkg.com/use-shopping-cart@3.0.0-beta.3/dist/core.umd.js"
     ></script>
-    <!-- *END CART* -->
 
-    <!-- <script defer src="js/nav-menu.js"></script> -->
+    <script defer src="js/load-products.js"></script>
+    <!-- *END CART* -->
 
     <!-- *GSAP* -->
     <script
@@ -62,13 +59,7 @@
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"
     ></script>
-
-    <script type="module">
-      import { loadProducts } from './js/load-products.js'
-      loadProducts()
-    </script>
-    <script defer src="js/cart.js" />
-
+    <!-- *MAIN* -->
     <script type="module" src="./js/index.js"></script>
 
     <title>Keiko Ramen</title>
@@ -116,11 +107,11 @@
         <div
           class="relative transform cursor-pointer hover:scale-1"
           aria-label="cart"
-          id="cart"
+          id="cart-toggle"
         >
           <img src="./assets/images/cart.png" alt="" />
           <p
-            id="items"
+            id="item-count"
             class="absolute w-6 h-6 font-bold leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red font-heading"
           ></p>
         </div>
@@ -147,7 +138,7 @@
       <!-- *Cart Modal* -->
       <section
         class="absolute inset-0 z-50 hidden w-full h-screen bg-red"
-        id="cart-items"
+        id="cart"
       >
         <button
           id="close"
@@ -179,11 +170,14 @@
             Go get more ramen
           </button>
         </div>
-        <template id="cart-template">
-          <ul id="cart-list" class="grid grid-cols-1 gap-4">
-            <li></li>
-          </ul>
-        </template>
+        <section id="cart-items">
+          <template id="cart-template">
+            <!-- <p id="cartDetails"></p> -->
+            <ul id="cart-list" class="grid grid-cols-1 gap-4">
+              <li id="list-item"></li>
+            </ul>
+          </template>
+        </section>
       </section>
     </header>
     <!-- *BG IMAGE* -->

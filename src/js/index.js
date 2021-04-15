@@ -1,10 +1,11 @@
 // individual js files are exported and
 // import everything here
 
-import toggleNav from './nav-menu.js'
+import toggleNav from './toggle-nav.js'
+import toggleCart from './toggle-cart.js'
 
 toggleNav()
-
+toggleCart()
 
 //* Animations *//
 
