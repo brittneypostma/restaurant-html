@@ -52,8 +52,9 @@ function loadItems() {
   const items = Object.keys(store.getState().cartDetails).map(
     item => store.getState().cartDetails[item]
   )
+  console.log(items)
   items.forEach(item => {
-    console.log({item})
+    console.log(item)
     const template = document.querySelector('#cart-list').insertAdjacentHTML(
       'afterbegin',
       `
@@ -111,20 +112,18 @@ function loadItems() {
   })
 }
 
-// function getItemDetails(item) {
-//   return {
-//     name: item.product.name,
-//     description: item.product.description,
-//     id: item.id,
-//     price: item.unit_amount,
-//     currency: item.currency,
-//     image: item.product.images[0],
-//   }
-// }
+function getItemDetails(item) {
+  return {
+    name: item.product.name,
+    description: item.product.description,
+    id: item.id,
+    price: item.unit_amount,
+    currency: item.currency,
+    image: item.product.images[0],
+  }
+}
 
 function createMenuTemplate(item) {
-
-  console.log(item)
   const template = document.querySelector('#menu-template')
   const menu = template.content.cloneNode(true)
   menu.querySelector('#name').innerText = item.product.name
@@ -133,8 +132,8 @@ function createMenuTemplate(item) {
     Math.round(item.unit_amount) / 100
   ).toFixed(2)}`
   menu.querySelector('#addToCart').addEventListener('click', () => {
-    console.log(item.id)
-    store.dispatch(addItem(item))
+    console.log(getItemDetails(item), item)
+    store.dispatch(addItem(getItemDetails(item)))
   })
 
   return menu
