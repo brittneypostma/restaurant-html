@@ -48,13 +48,12 @@ loadCart()
 store.subscribe(loadCart)
 
 function loadItems() {
-  document.querySelector('#cart-list').innerHTML = ''
+  // document.querySelector('#cart-list').innerHTML = ''
   const items = Object.keys(store.getState().cartDetails).map(
     item => store.getState().cartDetails[item]
   )
-  console.log(items)
   items.forEach(item => {
-    console.log(item)
+    console.log({item})
     const template = document.querySelector('#cart-list').insertAdjacentHTML(
       'afterbegin',
       `
@@ -66,7 +65,7 @@ function loadItems() {
             <p>Quantity: ${item.quantity} / ${item.formattedValue} each</p>
           </div>
           <div class="grid justify-items-end h-full content-between">
-            <button onclick="store.dispatch(removeItem(${item.id}))">
+            <button onclick="store.dispatch(removeItem('${item.id}'))">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-6 h-6"
@@ -132,7 +131,6 @@ function createMenuTemplate(item) {
     Math.round(item.unit_amount) / 100
   ).toFixed(2)}`
   menu.querySelector('#addToCart').addEventListener('click', () => {
-    console.log(getItemDetails(item), item)
     store.dispatch(addItem(getItemDetails(item)))
   })
 
