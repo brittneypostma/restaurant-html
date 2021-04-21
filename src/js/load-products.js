@@ -22,63 +22,109 @@ const {
   formatCurrencyString,
 } = UseShoppingCartCore.actions
 
-const count = Object.keys(JSON.stringify(store.getState().cartCount))
-let numberOfItems = count === 0 ? 0 : count
-const itemCount = document.querySelector('#item-count')
-
 function loadCart() {
+  let cartCount = store.getState().cartCount
+  const itemCount = document.getElementById('item-count')
+  const cartTitle = document.getElementById('cart-title')
   if (!store.getState().bootstrapped) {
     itemCount.innerHTML = '?'
-  } else if (numberOfItems === 0) {
-    itemCount.innerHTML = numberOfItems
+    // cartContent.innerHTML = 'loading...'
   }
-  itemCount.innerHTML = numberOfItems
-  return numberOfItems
-}
+  if (cartCount === 0) {
+    document.getElementById('cart-items').classList.add('hidden')
+    cartTitle.innerHTML = `Oh the sadness, you don't have any ramen in your cart!`
+  }
+  if (cartCount > 0) {
+    cartTitle.innerHTML = `Your Order`
+    document.getElementById('cart-items').classList.remove('hidden')
+  }
 
+  loadItems()
+
+  itemCount.innerHTML = cartCount
+}
 loadCart()
+
 store.subscribe(loadCart)
 
-function render() {
-  if (!store.getState().bootstrapped) {
-    document.getElementById("item-count").innerHTML = "?";
-  }
-
-  document.getElementById("item-count").innerHTML = store.getState().cartCount
-}
-render();
-
-store.subscribe(render);
-
-function updateCart() {
-  const cartItems = document.querySelector('#cart-items')
-  const noItems = document.getElementById('no-items')
-  noItems.style.display = 'none'
-  itemCount.innerHTML = numberOfItems
-  Object.keys(JSON.stringify(store.getState().cartDetails)).forEach(item => {
-    cartItems.appendChild(createCartTemplate(item))
+function loadItems() {
+  document.querySelector('#cart-list').innerHTML = ''
+  const items = Object.keys(store.getState().cartDetails).map(
+    item => store.getState().cartDetails[item]
+  )
+  items.forEach(item => {
+    console.log({item})
+    const template = document.querySelector('#cart-list').insertAdjacentHTML(
+      'afterbegin',
+      `
+        <li
+          class="flex gap-4 p-5 items-start text-black bg-white border-t-4 border-solid rounded-sm shadow-2xl border-orange justify-stretch  justify-between"
+        >
+          <div class="grid gap-4">
+            <h2>${item.name}</h2>
+            <p>Quantity: ${item.quantity} / ${item.formattedValue} each</p>
+          </div>
+          <div class="grid justify-items-end h-full content-between">
+            <button onclick="store.dispatch(removeItem(${item.id}))">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
+            </button>
+            <div class="flex items-center">
+              <button
+                class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
+                aria-label="remove one ${item.name} from cart"
+                onclick=""
+              >
+                -
+              </button>
+              <label for="number"
+                ><input
+                  class="w-8 h-8 mx-5 text-2xl text-center text-white rounded-full bg-red font-heading"
+                  type="number"
+                  min="1"
+                  value="${item.quantity}"
+              /></label>
+              <button
+                class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
+                aria-label="add one ${item.name} from cart"
+                onclick=""
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </li>`
+    )
+    return template
   })
-  return (numberOfItems = count)
 }
 
-function createCartTemplate(item) {
-  const template = document.querySelector('#cart-template')
-  const cart = template.content.cloneNode(true)
-  cart.querySelector('#list-item').innerText = getItemDetails(item)
-}
-
-function getItemDetails(item) {
-  return {
-    name: item.product.name,
-    description: item.product.description,
-    id: item.id,
-    price: item.unit_amount,
-    currency: item.currency,
-    image: item.product.images[0],
-  }
-}
+// function getItemDetails(item) {
+//   return {
+//     name: item.product.name,
+//     description: item.product.description,
+//     id: item.id,
+//     price: item.unit_amount,
+//     currency: item.currency,
+//     image: item.product.images[0],
+//   }
+// }
 
 function createMenuTemplate(item) {
+
+  console.log(item)
   const template = document.querySelector('#menu-template')
   const menu = template.content.cloneNode(true)
   menu.querySelector('#name').innerText = item.product.name
@@ -86,25 +132,9 @@ function createMenuTemplate(item) {
   menu.querySelector('#price').innerText = `$${(
     Math.round(item.unit_amount) / 100
   ).toFixed(2)}`
-  //   let quantity = 1
-  // const numOfItems = menu.querySelector('#numOfItems')
-  // numOfItems.querySelector('#quantity').value = quantity
-  // const minus = numOfItems.querySelector('#minus')
-  // const plus = numOfItems.querySelector('#plus')
-  // minus.addEventListener('click', () => {
-  //   if (quantity !== 1) {
-  //     quantity--
-  //     numOfItems.querySelector('#quantity').value = quantity
-  //   }
-  //   return quantity
-  // })
-  // plus.addEventListener('click', () => {
-  //   quantity++
-  //   numOfItems.querySelector('#quantity').value = quantity
-  // })
-
   menu.querySelector('#addToCart').addEventListener('click', () => {
-    store.dispatch(addItem(getItemDetails(item)))
+    console.log(item.id)
+    store.dispatch(addItem(item))
   })
 
   return menu
@@ -172,6 +202,72 @@ async function handleFormSubmit(event) {
     console.error(error)
   }
 }
+
+// must use single quotes in item when injecting to html
+// const items = Object.entries(store.getState().cartDetails)
+// let ids = []
+// items.forEach(arr => {
+//   for (let i = 0; i < arr.length; i += 2) {
+//     let id = arr[i]
+//     ids.push(arr[i])
+//     arr.splice(i, 1)
+//     arr.forEach(item => {
+//       console.log(item)
+//       const template = document.querySelector('#cart-list').insertAdjacentHTML('afterbegin', `
+//       <li
+//         class="flex gap-4 p-5 items-start text-black bg-white border-t-4 border-solid rounded-sm shadow-2xl border-orange justify-stretch  justify-between"
+//       >
+//         <div class="grid gap-4">
+//           <h2>${item.name}</h2>
+//           <p>Quantity: ${item.quantity} / ${item.formattedValue} each</p>
+//         </div>
+//         <div class="grid justify-items-end h-full content-between">
+//           <button onclick="store.dispatch(removeItem('${item.id}'
+//           ))">
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               class="w-6 h-6"
+//               fill="none"
+//               viewBox="0 0 24 24"
+//               stroke="currentColor"
+//             >
+//               <path
+//                 stroke-linecap="round"
+//                 stroke-linejoin="round"
+//                 stroke-width="2"
+//                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+//               />
+//             </svg>
+//           </button>
+//           <div class="flex items-center">
+//             <button
+//               class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
+//               aria-label="remove one ${item.name} from cart"
+//               onclick=""
+//             >
+//               -
+//             </button>
+//             <label for="number"
+//               ><input
+//                 class="w-8 h-8 mx-5 text-2xl text-center text-white rounded-full bg-red font-heading"
+//                 type="number"
+//                 min="1"
+//                 value="${item.quantity}"
+//             /></label>
+//             <button
+//               class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
+//               aria-label="add one ${item.name} from cart"
+//               onclick=""
+//             >
+//               +
+//             </button>
+//           </div>
+//         </div>
+//       </li>`)
+
+//     return template })
+//   }
+// })
 
 // function createTemplate(item) {
 //   const template = document.querySelector('#template')

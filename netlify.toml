@@ -12,6 +12,7 @@
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#project-detection
 [dev]
+  functions = "functions"
   command = "npm run dev" 
   targetPort = 5500 
   framework = "#custom"

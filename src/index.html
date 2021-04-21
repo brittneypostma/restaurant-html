@@ -42,9 +42,11 @@
       }
     </script>
     <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.5.1/dist/redux-toolkit.umd.min.js"></script>
+    <script src="https://unpkg.com/redux-persist@6.0.0/dist/redux-persist.js"></script>
     <script
       crossorigin
-      src="https://unpkg.com/use-shopping-cart@3.0.0-beta.3/dist/core.umd.js"
+      src="https://unpkg.com/use-shopping-cart@3.0.0-beta.10/dist/core.umd.js"
     ></script>
 
     <script defer src="js/load-products.js"></script>
@@ -112,7 +114,7 @@
           <img src="./assets/images/cart.png" alt="" />
           <p
             id="item-count"
-            class="absolute w-6 h-6 font-bold leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red font-heading"
+            class="absolute w-8 h-8 text-lg leading-normal text-center bg-white border-2 rounded-full text-orange -top-2 -right-2 border-orange font-heading"
           ></p>
         </div>
         <button
@@ -159,24 +161,21 @@
             />
           </svg>
         </button>
-        <div
-          id="no-items"
-          class="grid h-screen max-w-xl gap-10 p-4 mx-auto place-items-center place-content-center"
+        <section
+          id="cart-content"
+          class="grid h-screen gap-4 place-content-center place-items-center"
         >
-          <h2 class="leading-snug">
-            Oh the sadness, you don't have any ramen in your cart!
-          </h2>
+          <h1
+            id="cart-title"
+            class="max-w-2xl leading-relaxed text-center"
+          ></h1>
+          <section id="cart-items" class="hidden">
+            <ul class="grid grid-cols-1 gap-4" id="cart-list"></ul>
+          </section>
+
           <button id="close" class="text-2xl btn-primary">
             Go get more ramen
           </button>
-        </div>
-        <section id="cart-items">
-          <template id="cart-template">
-            <!-- <p id="cartDetails"></p> -->
-            <ul id="cart-list" class="grid grid-cols-1 gap-4">
-              <li id="list-item"></li>
-            </ul>
-          </template>
         </section>
       </section>
     </header>
@@ -214,30 +213,6 @@
               ></h3>
               <p id="desc"></p>
               <p id="price" class="text-2xl font-heading"></p>
-              <!-- <div id="numOfItems" class="flex items-center">
-                <button
-                  id="minus"
-                  class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
-                  aria-label=""
-                >
-                  -
-                </button>
-                <label for="number"
-                  ><input
-                    class="w-8 h-8 mx-5 text-2xl text-center text-white rounded-full bg-red font-heading"
-                    type="number"
-                    id="quantity"
-                    min="1"
-                    value=""
-                /></label>
-                <button
-                  id="plus"
-                  class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
-                  aria-label=""
-                >
-                  +
-                </button>
-              </div> -->
             </div>
 
             <button

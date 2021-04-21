@@ -1,4 +1,4 @@
-// //test api key
+//test api key
 // const testApiKey = "pk_test_51H3WzVA5gnA92gtxXNCulxWBYSBrAt4xvuuYkv6Tp5uvlQl1ZPZj3uHIX0PNCSDjdP7eOv7o46nlKZzhuvoowggt00VRkn0FMf";
 // let store = UseShoppingCartCore.createShoppingCartStore({
 //   stripe: testApiKey,
