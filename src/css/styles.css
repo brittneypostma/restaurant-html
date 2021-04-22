@@ -58,7 +58,10 @@ a {
 }
 
 .btn-primary {
-  @apply px-3 py-4 text-xl font-bold tracking-wider text-white uppercase transition-colors duration-150 ease-linear rounded-full bg-orange focus:ring-2 focus:ring-white focus:outline-none hover:bg-white hover:text-orange;
+  @apply px-3 py-4 text-xl font-bold tracking-wider text-white uppercase transition-colors duration-150 ease-linear border rounded-full bg-orange focus:ring-2 focus:ring-white focus:outline-none hover:bg-white hover:text-orange hover:border-orange border-orange;
+}
+.btn-secondary {
+  @apply px-3 py-4 text-xl font-bold tracking-wider text-white uppercase transition-colors duration-150 ease-linear border rounded-full bg-red focus:ring-2 focus:ring-white focus:outline-none hover:bg-white hover:text-red hover:border-red border-red;
 }
 
 input {

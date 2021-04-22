@@ -1,5 +1,6 @@
 // * Use Shopping Cart
-const testApiKey = process.env.STRIPE_PUBLISHABLE_KEY
+const testApiKey =
+  'pk_test_51H3WzVA5gnA92gtxXNCulxWBYSBrAt4xvuuYkv6Tp5uvlQl1ZPZj3uHIX0PNCSDjdP7eOv7o46nlKZzhuvoowggt00VRkn0FMf'
 let store = UseShoppingCartCore.createShoppingCartStore({
   stripe: testApiKey,
   mode: 'client-only',
@@ -47,22 +48,37 @@ loadCart()
 
 store.subscribe(loadCart)
 
+document
+.getElementById("checkout")
+.addEventListener("click", function () {
+  store.dispatch(redirectToCheckout());
+});
+
 function loadItems() {
-  // document.querySelector('#cart-list').innerHTML = ''
+  const orderDetails = document.querySelector('#order-details')
+  const cartList = document.querySelector('#cart-list')
+  const receipt = document.querySelector('#receipt')
+  cartList.innerHTML = ''
+  orderDetails.innerHTML = ''
+  receipt.classList.add('hidden')
   const items = Object.keys(store.getState().cartDetails).map(
     item => store.getState().cartDetails[item]
   )
   items.forEach(item => {
-    console.log({item})
-    const template = document.querySelector('#cart-list').insertAdjacentHTML(
+    // *list of items in cart
+    cartList.insertAdjacentHTML(
       'afterbegin',
       `
         <li
           class="flex gap-4 p-5 items-start text-black bg-white border-t-4 border-solid rounded-sm shadow-2xl border-orange justify-stretch  justify-between"
         >
           <div class="grid gap-4">
-            <h2>${item.name}</h2>
-            <p>Quantity: ${item.quantity} / ${item.formattedValue} each</p>
+            <h2 class="text-2xl text-left whitespace-nowrap lg:text-4xl">${
+              item.name
+            }</h2>
+            <p class="lg:text-2xl">Total: ${item.formattedValue} / $${(
+        Math.round(item.price) / 100
+      ).toFixed(2)} each</p>
           </div>
           <div class="grid justify-items-end h-full content-between">
             <button onclick="store.dispatch(removeItem('${item.id}'))">
@@ -85,7 +101,7 @@ function loadItems() {
               <button
                 class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
                 aria-label="remove one ${item.name} from cart"
-                onclick=""
+                onclick="store.dispatch(decrementItem('${item.id}'))"
               >
                 -
               </button>
@@ -99,15 +115,44 @@ function loadItems() {
               <button
                 class="flex items-center justify-center w-8 h-8 text-3xl transition-colors bg-white border-2 border-solid cursor-pointer text-red border-red hover:bg-red hover:text-white"
                 aria-label="add one ${item.name} from cart"
-                onclick=""
+                onclick="store.dispatch(incrementItem('${item.id}'))"
               >
                 +
               </button>
             </div>
           </div>
-        </li>`
+        </li>
+`
     )
-    return template
+    if (items.length > 0) {
+      document.querySelector('#receipt').classList.remove('hidden')
+      // *list of items in order details
+      orderDetails.insertAdjacentHTML(
+        'afterbegin',
+        `
+        <li
+        class="pt-2 flex gap-4 items-start bg-white border-t border-solid border-orange justify-stretch  justify-between"
+        >
+          <div class="grid gap-4 w-full">
+            <div class="flex justify-between">
+              <h4 class="text-left whitespace-nowrap">${item.name}</h4>
+              <p class="text-lg lg:text-2xl font-heading">${item.formattedValue}</p>
+            </div>
+            <p class="lg:text-2xl justify-self-end">Qty. ${item.quantity}</p>
+          </div>
+        </li>
+`
+      )
+
+      // * total
+      document.querySelector(
+        '#total'
+      ).innerHTML = store.getState().formattedTotalPrice
+    }
+    
+    if (store.getState().cartCount === 0) {
+      recept.classList.add('hidden')
+    }
   })
 }
 
@@ -150,8 +195,8 @@ function createOrderTemplate(item) {
   ).toFixed(2)}`
   order.querySelector('[name=sku]').value = item.id
   const form = order.querySelector('form')
-
-  form.addEventListener('submit', handleFormSubmit)
+console.log(item)
+  // form.addEventListener('submit', handleFormSubmit)
 
   return order
 }
@@ -171,34 +216,34 @@ async function loadProducts() {
 
 loadProducts()
 
-async function handleFormSubmit(event) {
-  event.preventDefault()
-  const form = new FormData(event.target)
+// async function handleFormSubmit(event) {
+//   event.preventDefault()
+//   const form = new FormData(event.target)
 
-  const data = {
-    sku: form.get('sku'),
-    quantity: 1,
-  }
+//   const data = {
+//     sku: form.get('sku'),
+//     quantity: 1,
+//   }
 
-  const response = await fetch('/.netlify/functions/create-checkout', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-    .then(res => res.json())
-    .catch(err => console.error(err))
-  const stripe = await Stripe(response.publishableKey)
+//   const response = await fetch('/.netlify/functions/create-checkout', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   })
+//     .then(res => res.json())
+//     .catch(err => console.error(err))
+//   const stripe = await Stripe(response.publishableKey)
 
-  const { error } = await stripe.redirectToCheckout({
-    sessionId: response.sessionId,
-  })
+//   const { error } = await stripe.redirectToCheckout({
+//     sessionId: response.sessionId,
+//   })
 
-  if (error) {
-    console.error(error)
-  }
-}
+//   if (error) {
+//     console.error(error)
+//   }
+// }
 
 // must use single quotes in item when injecting to html
 // const items = Object.entries(store.getState().cartDetails)
