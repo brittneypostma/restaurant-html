@@ -29,7 +29,6 @@ function loadCart() {
   const cartTitle = document.getElementById('cart-title')
   if (!store.getState().bootstrapped) {
     itemCount.innerHTML = '?'
-    // cartContent.innerHTML = 'loading...'
   }
   if (cartCount === 0) {
     document.getElementById('cart-items').classList.add('hidden')
@@ -40,6 +39,9 @@ function loadCart() {
     document.getElementById('cart-items').classList.remove('hidden')
   }
 
+  document.getElementById('checkout').addEventListener('click', function () {
+    store.dispatch(redirectToCheckout())
+  })
   loadItems()
 
   itemCount.innerHTML = cartCount
@@ -47,7 +49,6 @@ function loadCart() {
 loadCart()
 
 store.subscribe(loadCart)
-
 
 function loadItems() {
   const orderDetails = document.querySelector('#order-details')
@@ -144,7 +145,7 @@ function loadItems() {
         '#total'
       ).innerHTML = store.getState().formattedTotalPrice
     }
-    
+
     if (store.getState().cartCount === 0) {
       recept.classList.add('hidden')
     }
