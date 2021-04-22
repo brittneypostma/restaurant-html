@@ -48,11 +48,6 @@ loadCart()
 
 store.subscribe(loadCart)
 
-document
-.getElementById("checkout")
-.addEventListener("click", function () {
-  store.dispatch(redirectToCheckout());
-});
 
 function loadItems() {
   const orderDetails = document.querySelector('#order-details')
@@ -195,8 +190,8 @@ function createOrderTemplate(item) {
   ).toFixed(2)}`
   order.querySelector('[name=sku]').value = item.id
   const form = order.querySelector('form')
-console.log(item)
-  // form.addEventListener('submit', handleFormSubmit)
+
+  form.addEventListener('submit', handleFormSubmit)
 
   return order
 }
@@ -216,34 +211,34 @@ async function loadProducts() {
 
 loadProducts()
 
-// async function handleFormSubmit(event) {
-//   event.preventDefault()
-//   const form = new FormData(event.target)
+async function handleFormSubmit(event) {
+  event.preventDefault()
+  const form = new FormData(event.target)
 
-//   const data = {
-//     sku: form.get('sku'),
-//     quantity: 1,
-//   }
+  const data = {
+    sku: form.get('sku'),
+    quantity: 1,
+  }
 
-//   const response = await fetch('/.netlify/functions/create-checkout', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-//   })
-//     .then(res => res.json())
-//     .catch(err => console.error(err))
-//   const stripe = await Stripe(response.publishableKey)
+  const response = await fetch('/.netlify/functions/create-checkout', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then(res => res.json())
+    .catch(err => console.error(err))
+  const stripe = await Stripe(response.publishableKey)
 
-//   const { error } = await stripe.redirectToCheckout({
-//     sessionId: response.sessionId,
-//   })
+  const { error } = await stripe.redirectToCheckout({
+    sessionId: response.sessionId,
+  })
 
-//   if (error) {
-//     console.error(error)
-//   }
-// }
+  if (error) {
+    console.error(error)
+  }
+}
 
 // must use single quotes in item when injecting to html
 // const items = Object.entries(store.getState().cartDetails)
