@@ -1,11 +1,20 @@
 // individual js files are exported and
 // import everything here
-
+import loadCart from './checkout'
+import {loadProducts } from './load-products'
 import toggleNav from './toggle-nav.js'
 import toggleCart from './toggle-cart.js'
 
+
+loadCart()
+
+store.subscribe(loadCart)
+
+loadProducts()
 toggleNav()
 toggleCart()
+
+
 
 //* Animations *//
 

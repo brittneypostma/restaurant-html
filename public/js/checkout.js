@@ -23,7 +23,7 @@ const {
   formatCurrencyString,
 } = UseShoppingCartCore.actions
 
-function loadCart() {
+export default function loadCart() {
   let cartCount = store.getState().cartCount
   const itemCount = document.getElementById('item-count')
   const cartTitle = document.getElementById('cart-title')
@@ -48,9 +48,6 @@ function loadCart() {
 
   itemCount.innerHTML = cartCount
 }
-loadCart()
-
-store.subscribe(loadCart)
 
 function loadItems() {
   const orderDetails = document.querySelector('#order-details')
