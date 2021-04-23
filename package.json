@@ -4,11 +4,14 @@
   "description": "",
   "main": "js/index.js",
   "scripts": {
-    "build:css": "postcss ./src/css/styles.css > ./public/css/tailwind.css",
+    "build:assets": "cp -r \"./src/assets/\" \"./public/assets/\"",
+    "build:css": "postcss \"./src/css/styles.css\" > \"./public/css/tailwind.css\"",
     "build:html": "html-minifier --input-dir src --output-dir public --file-ext html --remove-comments --collapse-whitespace",
-    "build:js": "uglifyjs ./src/js/index.js -o ./public/js/index.js -c -m",
-    "build": "npm run build:css && npm run build:html && npm run build:js",
-    "dev": "nodemon -x postcss ./src/css/styles.css -o ./src/css/tailwind.css -w tailwind.config.js -w ./src/css/styles.css"
+    "build:js": "cp -r \"./src/js/\" \"./public/js/\"",
+    "build": "npm run build:assets && npm run build:css && npm run build:html && npm run build:js",
+    "dev": "snowpack dev",
+    "serve": "live-server --port=5500 --open=./src/",
+    "watch": "nodemon -x postcss \"./src/css/styles.css\" -o \"./src/css/tailwind.css\" -w \"./tailwind.config.js\" -w \"./src/css/styles.css\""
   },
   "repository": {
     "type": "git",
@@ -23,12 +26,15 @@
   "homepage": "https://github.com/brittneypostma/template#readme",
   "devDependencies": {
     "autoprefixer": "^10.2.5",
+    "browser-sync": "^2.26.14",
     "cssnano": "^4.1.10",
     "html-minifier": "^4.0.0",
+    "live-server": "^1.2.1",
     "minify": "^7.0.1",
     "nodemon": "^2.0.7",
     "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
+    "snowpack": "^3.3.5",
     "tailwindcss": "^2.0.4",
     "uglify-js": "^3.13.3"
   },
