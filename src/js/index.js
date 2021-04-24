@@ -1,8 +1,11 @@
 // individual js files are exported and
 // import everything here
-
+import {loadProducts} from './load-products.js'
 import toggleNav from './toggle-nav.js'
 import toggleCart from './toggle-cart.js'
+
+
+loadProducts()
 
 toggleNav()
 toggleCart()

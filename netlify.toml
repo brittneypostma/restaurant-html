@@ -14,7 +14,7 @@
 [dev]
   functions = "functions"
   command = "npm run dev" 
-  targetPort = 5500 
+  targetPort = 5501 
   framework = "#custom"
   publish = "public" 
 

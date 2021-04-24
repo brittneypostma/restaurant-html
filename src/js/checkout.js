@@ -33,10 +33,12 @@ function loadCart() {
   if (cartCount === 0) {
     document.getElementById('cart-items').classList.add('hidden')
     cartTitle.innerHTML = `Oh the sadness, you don't have any ramen in your cart!`
+    document.getElementById('cart-content').classList.add('content-center')
   }
   if (cartCount > 0) {
     cartTitle.innerHTML = `Your Order`
     document.getElementById('cart-items').classList.remove('hidden')
+    document.getElementById('cart-content').classList.remove('content-center')
   }
 
   document.getElementById('checkout').addEventListener('click', function () {
@@ -46,6 +48,7 @@ function loadCart() {
 
   itemCount.innerHTML = cartCount
 }
+
 loadCart()
 
 store.subscribe(loadCart)
