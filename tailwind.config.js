@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge:  [
     './src/*.html',
     './src/js/*.js',
@@ -28,24 +29,24 @@ module.exports = {
         inset: 'inset 0px 5px 10px rgba(0, 0, 0, 0.25)',
         none: 'none'
       },
-      fontSize: {
-        '8xl': "8rem"
-      },
+      // fontSize: {
+      //   '8xl': "8rem"
+      // },
       gridTemplateColumns: {
         'fit': "repeat(auto-fit, minmax(250px, 1fr))"
       },
-      scale: {
-        '-1': '-1',
-        '1': '1.2'
-      }
+      // scale: {
+      //   '-1': '-1',
+      //   '1': '1.2'
+      // }
     },
   },
   variants: {
     //! add in variants that don't come in by default //
     //! order is important //
-    backgroundColor: ["responsive", "hover", "focus", "active"],
-    borderWidth: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    scale: ['responsive', 'hover', 'focus', 'active', 'group-hover']
+    // backgroundColor: ["responsive", "hover", "focus", "active"],
+    // borderWidth: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+    // scale: ['responsive', 'hover', 'focus', 'active', 'group-hover']
   },
   plugins: [],
 }
