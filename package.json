@@ -7,7 +7,7 @@
     "build:css": "postcss ./src/css/styles.css > ./public/css/tailwind.css",
     "build:html": "html-minifier --input-dir src --output-dir public --file-ext html --remove-comments --collapse-whitespace",
     "build:js": "uglifyjs ./src/js/index.js -o ./public/js/index.js -c -m",
-    "build": "cd functions && npm i && cd .. &&  snowpack build",
+    "build": "cross-env NODE_ENV=production snowpack build",
     "watch": "nodemon -x postcss ./src/css/styles.css -o ./src/css/tailwind.css -w tailwind.config.js -w ./src/css/styles.css",
     "dev": "cross-env NODE_ENV=development snowpack dev"
   },
@@ -32,7 +32,9 @@
     "postcss": "^8.2.13",
     "snowpack": "^3.3.5",
     "tailwindcss": "^2.1.2",
-    "uglify-js": "^3.13.3"
+    "uglify-js": "^3.13.3",
+    "stripe": "^8.84.0",
+    "use-shopping-cart": "^3.0.0-beta.14"
   },
   "dependencies": {}
 }
