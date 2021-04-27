@@ -1,4 +1,5 @@
 module.exports = {
+  root: "src/",
   optimize: {
     bundle: true,
     minify: true,
