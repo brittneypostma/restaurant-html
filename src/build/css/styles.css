@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;700&family=Merienda+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+
+
+.open-nav {
+  @apply z-40 h-screen bg-opacity-90;
+}
+
+
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,{
+  @apply min-h-screen;
+}
+
+body {
+  @apply max-w-full overflow-x-hidden overflow-y-auto bg-red font-body;
+  scroll-behavior: smooth;
+}
+
+.clear-top {
+  position: relative;
+  top: calc(100vh - 8rem);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-heading;
+}
+
+h1 {
+  @apply text-6xl;
+}
+
+h2 {
+  @apply text-5xl text-center;
+}
+
+h3 {
+  @apply text-4xl;
+}
+
+h4 {
+  @apply text-3xl;
+}
+
+a {
+  @apply text-lg no-underline transition-all duration-75 ease-linear font-heading;
+}
+
+.btn-primary {
+  @apply px-3 py-4 text-xl font-bold tracking-wider text-white uppercase transition-colors duration-150 ease-linear border rounded-full bg-orange focus:ring-2 focus:ring-white focus:outline-none hover:bg-white hover:text-orange hover:border-orange border-orange;
+}
+.btn-secondary {
+  @apply px-3 py-4 text-xl font-bold tracking-wider text-white uppercase transition-colors duration-150 ease-linear border rounded-full bg-red focus:ring-2 focus:ring-white focus:outline-none hover:bg-white hover:text-red hover:border-red border-red;
+}
+
+input {
+  height: 34px;
+  color: black;
+  font-size: 1rem;
+  font-family: 'Advent Pro', Helvetica, sans-serif;
+}
+
+/*! CUSTOM CSS */
+.bezier:hover > img {
+  transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95),
+    -webkit-transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  transform: scale(1.1);
+}
+
+.card-hover:hover > img {
+  transform: scale(1.1);
+}
+
+.email {
+  top: 45px;
+  right: 100px;
+}
+
+.text-shadow {
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/*! Input Number - no buttons */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/*! Waves CSS */
+/* path {
+  transition: fill 150ms ease;
+}
+
+.svg-top {
+  top: -72px;
+}
+
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(195% + 1.3px);
+  height: 54px;
+  transform: rotateY(180deg);
+}
+
+.wave-top {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-top svg {
+  position: relative;
+  display: block;
+  width: calc(195% + 1.3px);
+  height: 54px;
+  transform: rotateY(180deg);
+} */

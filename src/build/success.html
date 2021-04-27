@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Meta Tags -->
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafafa" />
+    <!-- Open Graph -->
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="./assets/images/og.png" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="" />
+    <meta property="twitter:url" content="" />
+    <meta name="twitter:title" content="Tempate" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <!-- Site -->
+    <link rel="icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+
+    <script defer src="js/nav-menu.js"></script>
+    <title>Thank you|Keiko Ramen</title>
+  </head>
+
+  <body>
+    <!-- *HEADER* -->
+    <header
+      class="fixed top-0 z-20 flex items-center justify-between w-full p-4 space-x-4 text-white bg-darkRed"
+    >
+      <a href="#">
+        <img
+          src="./assets/images/logo.png"
+          alt="Keiko Ramen logo"
+          class="w-16"
+        />
+      </a>
+      <section class="flex items-center justify-end w-full space-x-8">
+        <nav id="nav-menu" class="hidden lg:flex">
+          <ul
+            id="nav-list"
+            class="absolute inset-0 z-40 grid w-full h-64 gap-8 bg-opacity-90 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
+          >
+            <li>
+              <a
+                href="#menu"
+                class="uppercase border-b-0 font-heading border-orange hover:border-b-4"
+                >MENU</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="uppercase border-b-0 font-heading border-orange hover:border-b-4"
+                >CONTACT</a
+              >
+            </li>
+            <li>
+              <a href="#order">
+                <button class="btn-primary">ORDER NOW</button>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a
+          href="/cart.html"
+          class="relative transform hover:scale-1"
+          aria-label="cart"
+        >
+          <img src="./assets/images/cart.png" alt="" />
+          <p
+            class="absolute w-6 h-6 leading-tight text-center border rounded-full bg-orange -top-2 -right-2 border-red"
+          >
+            0
+          </p>
+        </a>
+        <button
+          id="nav-toggle"
+          aria-label="toggle navigation menu"
+          class="z-50 w-12 p-0 text-white bg-transparent cursor-pointer lg:hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#ffffff"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </section>
+    </header>
+
+    <h1>Thank you for your purchase!</h1>
+    <a href="index.html">
+      <button
+        class="text-4xl whitespace-no-wrap border-2 font-body hover:btn-hover border-orange hover:border-solid"
+      >
+        Go get more ramen
+      </button>
+    </a>
+  </body>
+</html>
