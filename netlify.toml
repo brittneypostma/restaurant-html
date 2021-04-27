@@ -1,5 +1,5 @@
 [build]
-  command = "cross-env NODE_ENV=production cd functions && npm i && cd.. && npm run build"
+  command = "cd functions && npm i && cd.. && npm run build"
   functions = "functions"
   publish = "build"
 
