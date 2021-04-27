@@ -1,5 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const formatLineItems = require("use-shopping-cart/utilities").formatLineItems;
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const formatLineItems = require('use-shopping-cart/utilities')
+  .formatLineItems;
 
 exports.handler = async (event) => {
   const cartDetails = JSON.parse(event.body);

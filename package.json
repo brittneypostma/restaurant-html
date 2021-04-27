@@ -30,10 +30,11 @@
     "minify": "^7.0.1",
     "nodemon": "^2.0.7",
     "postcss": "^8.2.13",
+    "react": "^17.0.2",
     "snowpack": "^3.3.5",
+    "stripe": "^8.84.0",
     "tailwindcss": "^2.1.2",
     "uglify-js": "^3.13.3",
-    "stripe": "^8.84.0",
     "use-shopping-cart": "^3.0.0-beta.14"
   },
   "dependencies": {}

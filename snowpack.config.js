@@ -5,4 +5,10 @@ module.exports = {
     minify: true,
     target: 'es2018',
   },
+  buildOptions: {
+    out: 'build/',
+  },
+  devOptions: {
+    open: "none"
+  }
 }
