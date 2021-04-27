@@ -1,5 +1,5 @@
 [build]
-  command = "cd functions && npm i && cd.. && npm run build"
+  command = "npm run build"
   functions = "functions"
   publish = "build"
 
