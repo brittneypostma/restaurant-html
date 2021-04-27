@@ -1,21 +1,11 @@
-# example netlify.toml
 [build]
   command = "npm run build"
   functions = "functions"
   publish = "public"
 
-[[redirects]]
-  from = "/src/*"
-  to = "/index.html"
-  status = 200
-
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#project-detection
 [dev]
   functions = "functions"
   command = "npm run dev" 
   targetPort = 8080 
   framework = "#custom"
   publish = "build" 
-
-  ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
