@@ -41,9 +41,24 @@ function loadCart() {
     document.getElementById('cart-content').classList.remove('content-center')
   }
 
-  document.getElementById('checkout').addEventListener('click', function () {
-    store.dispatch(redirectToCheckout())
-  })
+  document
+    .getElementById('checkout')
+    .addEventListener('click', async function (e) {
+      e.preventDefault()
+      const cartDetails = store.getState().cartDetails
+      const response = await fetch('/.netlify/functions/create-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cartDetails),
+      })
+        .then(res => res.json())
+        .catch(err => console.error(err))
+
+      store.dispatch(redirectToCheckout({ sessionId: response.sessionId }))
+    })
+    
   loadItems()
 
   itemCount.innerHTML = cartCount
