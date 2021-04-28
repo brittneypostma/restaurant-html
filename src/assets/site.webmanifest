@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Keiko Ramen | Noodles & Stuff",
+  "short_name": "Keiko Ramen",
   "icons": [
     {
       "src": "./images/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#FAFAFA",
+  "theme_color": "#A50022",
+  "background_color": "#111111",
   "display": "standalone"
 }
