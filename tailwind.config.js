@@ -1,22 +1,23 @@
 module.exports = {
   mode: 'jit',
-  purge:  [
+  purge: [
     './src/*.html',
     './src/js/*.js',
-    ]
-,
+    './build/**/*.html',
+    './build/**/*.js',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     //! anything here overrides tailwinds defaults //
     colors: {
       white: '#ffffff',
       lightGray: '#fefefe',
-      black: "#111111",
-      red: "#A50022",
-      darkRed: "#640A13",
-      orange: "#FF7800",
-      darkOrange: "#e97711",
-      transparent: "transparent"
+      black: '#111111',
+      red: '#A50022',
+      darkRed: '#640A13',
+      orange: '#FF7800',
+      darkOrange: '#e97711',
+      transparent: 'transparent',
     },
     fontFamily: {
       heading: "'Merienda One', sans-serif",
@@ -27,18 +28,14 @@ module.exports = {
       boxShadow: {
         outline: '0 0 0 3px rgba(0,0,0, 0.5)',
         inset: 'inset 0px 5px 10px rgba(0, 0, 0, 0.25)',
-        none: 'none'
+        none: 'none',
       },
-      // fontSize: {
-      //   '8xl': "8rem"
-      // },
+      fontSize: {
+        '8xl': '8rem',
+      },
       gridTemplateColumns: {
-        'fit': "repeat(auto-fit, minmax(250px, 1fr))"
+        fit: 'repeat(auto-fit, minmax(250px, 1fr))',
       },
-      // scale: {
-      //   '-1': '-1',
-      //   '1': '1.2'
-      // }
     },
   },
   variants: {

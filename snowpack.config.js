@@ -1,14 +1,19 @@
 module.exports = {
-  root: "src/",
-  optimize: {
-    bundle: true,
-    minify: true,
-    target: 'es2018',
-  },
   buildOptions: {
     out: 'build/',
   },
   devOptions: {
     open: "none"
-  }
+  },
+  optimize: {
+    bundle: true,
+    minify: true,
+    target: 'es2020',
+  },
+  plugins: [
+
+    '@snowpack/plugin-postcss',
+
+  ],
+  root: "src/",
 }
