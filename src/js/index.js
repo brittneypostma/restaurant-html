@@ -3,13 +3,17 @@
 import { loadProducts } from './load-products.js'
 import toggleNav from './toggle-nav.js'
 import toggleCart from './toggle-cart.js'
-
-console.log(window.location.href)
+import handleSubmit from './form.js'
 
 if (!window.location.href.match(/success/)) {
+  //* load in products to html
   loadProducts()
-  //* Animations *//
 
+  //* listen for form input
+  const form = document.getElementById('subscribe')
+  form.addEventListener('submit', handleSubmit)
+
+  //* GSAP Animations *//
   gsap.registerPlugin(ScrollTrigger)
 
   ScrollTrigger.defaults({

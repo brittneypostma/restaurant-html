@@ -333,10 +333,9 @@
             <div class="grid justify-center lg:absolute email">
               <div class="flex">
                 <form
+                  id="subscribe"
                   name="subscribe"
                   method="POST"
-                  netlify-honeypot="bot-field"
-                  data-netlify-recaptcha="true"
                   data-netlify="true"
                   class="grid gap-2"
                 >
@@ -348,7 +347,6 @@
                       aria-required="true"
                       name="email_address"
                       placeholder="keiko@ramen.com"
-                      value=""
                       id="email" /></label
                   ><button
                     class="border-2 border-red btn-primary"
