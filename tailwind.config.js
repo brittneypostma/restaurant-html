@@ -1,11 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: [
-    './src/*.html',
-    './src/js/*.js',
-    './build/**/*.html',
-    './build/**/*.js',
-  ],
+  purge: ['./src/**/*.{html, js}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     //! anything here overrides tailwinds defaults //

@@ -2,21 +2,18 @@
 
 @tailwind base;
 @tailwind components;
-
+@tailwind utilities;
 
 .open-nav {
   @apply z-40 h-screen bg-opacity-90;
 }
-
-
-@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
 }
 
 html,
-body,{
+body {
   @apply min-h-screen;
 }
 

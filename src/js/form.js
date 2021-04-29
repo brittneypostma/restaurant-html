@@ -1,7 +1,8 @@
 export default async function handleSubmit (e) {
-  const form = document.getElementById('subscribe')
   e.preventDefault()
+  const form = document.getElementById('subscribe')
   const formData = new FormData(form)
+
   const data = await fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

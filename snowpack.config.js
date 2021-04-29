@@ -11,9 +11,7 @@ module.exports = {
     target: 'es2020',
   },
   plugins: [
-
     '@snowpack/plugin-postcss',
-
   ],
   root: "src/",
 }
