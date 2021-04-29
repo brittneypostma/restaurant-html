@@ -67,11 +67,16 @@
     ></script>
     <!-- *MAIN* -->
     <script type="module" src="./js/index.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        store.dispatch(clearCart())
+      })
+    </script>
 
     <title>Thank You | Keiko Ramen</title>
   </head>
 
-  <body>
+  <body onload="store.dispatch(clearCart())">
     <!-- *HEADER* -->
     <header
       class="fixed top-0 z-20 flex items-center justify-between w-full p-4 text-white bg-darkRed"

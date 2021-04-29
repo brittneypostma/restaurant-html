@@ -332,7 +332,14 @@
             </h3>
             <div class="grid justify-center lg:absolute email">
               <div class="flex">
-                <form class="grid gap-2">
+                <form
+                  name="subscribe"
+                  method="POST"
+                  netlify-honeypot="bot-field"
+                  data-netlify-recaptcha="true"
+                  data-netlify="true"
+                  class="grid gap-2"
+                >
                   <label for="email" class="text-xl text-white"
                     >Enter your email<br /><input
                       type="email"
@@ -345,7 +352,6 @@
                       id="email" /></label
                   ><button
                     class="border-2 border-red btn-primary"
-                    data-element="submit"
                     type="submit"
                   >
                     Subscribe
