@@ -1,21 +1,18 @@
 export default async function handleSubmit (e) {
   e.preventDefault()
   const form = document.getElementById('subscribe')
-  const formData = new FormData(form)
-
-  const data = await fetch("/", {
+  const data = new FormData(form)
+  data.append('form-name', 'subscribe');
+  await fetch("/", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString()
+    body: data
   })
   .then(() => {
-    alert("Thank you for subscribing!")
+    form.innerHTML = `<p class="text-2xl font-bold text-white">Thank You for subscribing!</p>`
     form.reset()
   })
   .catch((e) => {
-    alert("Sorry, there was a problem submitting the form.")
+    alert(`Error: ${error}`)
     console.error(e)
   })
-
-  return data
 }
