@@ -11,6 +11,7 @@ if (!window.location.href.match(/success/)) {
 
   //* listen for form input
   const form = document.getElementById('subscribe')
+  form.reset()
   form.addEventListener('submit', handleSubmit)
 
   //* GSAP Animations *//
