@@ -1,11 +1,12 @@
 [build]
   command = "npm run build"
-  functions = "functions"
   publish = "build"
 
 [dev]
-  functions = "functions"
+  publish = "./src" 
   command = "npm run dev" 
   targetPort = 8080 
   framework = "#custom"
-  publish = "build" 
+
+[functions]
+  directory = "functions/"

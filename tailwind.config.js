@@ -1,6 +1,6 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.html', './src/**/*.js'],
+  mode: 'aot',
+  purge: ['./build/**/*.html', './build/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     //! anything here overrides tailwinds defaults //
@@ -29,7 +29,7 @@ module.exports = {
         '8xl': '8rem',
       },
       gridTemplateColumns: {
-        fit: 'repeat(auto-fit, minmax(250px, 1fr))',
+        fit: 'repeat(auto-fit, minmax(300px, 1fr))',
       },
     },
   },
