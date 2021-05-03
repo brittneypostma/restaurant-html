@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'aot',
-  purge: ['./build/**/*.html', './build/**/*.js'],
+  purge: ['./src/**/*.html', './src/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     //! anything here overrides tailwinds defaults //
