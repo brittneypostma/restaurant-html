@@ -86,14 +86,14 @@ function loadItems() {
         <li
           class="grid gap-4 p-5 text-black bg-white border-t-4 border-solid rounded-sm shadow-2xl border-orange justify-stretch"
         >
-          <div class="flex gap-4 justify-between">
+          <div class="flex gap-4 justify-between items-start">
             <h2 class="text-2xl text-left whitespace-nowrap lg:text-4xl">${
               item.name
             }</h2>
             <button onclick="store.dispatch(removeItem('${item.id}'))">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6"
+              class="w-8 h-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
