@@ -74,9 +74,9 @@
   <body>
     <!-- *HEADER* -->
     <header
-      class="fixed top-0 z-20 flex items-center justify-between w-full p-4 text-white bg-darkRed"
+      class="fixed top-0 z-20 flex items-center justify-between w-full p-4 text-white  bg-darkRed"
     >
-      <a href="#">
+      <a href="#" rel="home">
         <img
           src="./assets/images/logo.png"
           alt="Keiko Ramen logo"
@@ -87,19 +87,19 @@
         <nav id="nav-menu" class="hidden lg:flex">
           <ul
             id="nav-list"
-            class="absolute inset-0 grid w-full h-0 gap-8 transition-all bg-opacity-0 place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
+            class="absolute inset-0 grid w-full h-0 gap-8 transition-all bg-opacity-0  place-items-center place-content-center bg-red lg:h-auto lg:flex lg:bg-transparent lg:relative"
           >
             <li>
               <a
                 href="#menu"
-                class="uppercase border-b-0 font-heading border-orange hover:border-b-4"
+                class="uppercase border-b-0  font-heading border-orange hover:border-b-4"
                 >MENU</a
               >
             </li>
             <li>
               <a
                 href="#contact"
-                class="uppercase border-b-0 font-heading border-orange hover:border-b-4"
+                class="uppercase border-b-0  font-heading border-orange hover:border-b-4"
                 >CONTACT</a
               >
             </li>
@@ -118,13 +118,13 @@
           <img src="./assets/images/cart.png" alt="" />
           <p
             id="item-count"
-            class="absolute w-8 h-8 text-lg leading-normal text-center bg-white border-2 rounded-full text-orange -top-2 -right-2 border-orange font-heading"
+            class="absolute w-8 h-8 text-lg leading-normal text-center bg-white border-2 rounded-full  text-orange -top-2 -right-2 border-orange font-heading"
           ></p>
         </div>
         <button
           id="nav-toggle"
           aria-label="toggle navigation menu"
-          class="z-40 w-12 p-0 text-white bg-transparent cursor-pointer lg:hidden"
+          class="z-40 w-12 p-0 text-white bg-transparent cursor-pointer  lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +167,7 @@
         </button>
         <section
           id="cart-content"
-          class="grid justify-center w-screen h-screen gap-4 overflow-x-hidden overflow-y-auto justify-items-center"
+          class="grid justify-center w-screen h-screen gap-4 overflow-x-hidden overflow-y-auto  justify-items-center"
         >
           <h1
             id="cart-title"
@@ -175,7 +175,7 @@
           ></h1>
           <!-- *container -->
           <section
-            class="grid w-screen grid-cols-1 gap-4 justify-items-stretch max-w-7xl lg:flex"
+            class="grid w-screen grid-cols-1 gap-4  justify-items-stretch max-w-7xl lg:flex"
           >
             <!-- *items list -->
             <section id="cart-items" class="hidden p-4 lg:p-0 lg:w-2/3">
@@ -187,13 +187,13 @@
                 <h2 class="text-center">Order Details</h2>
                 <ul id="order-details" class="grid grid-cols-1 gap-4"></ul>
                 <div
-                  class="flex justify-between py-4 border-t-4 border-red text-red"
+                  class="flex justify-between py-4 border-t-4  border-red text-red"
                 >
                   <h2 class="text-2xl lg:text-4xl">Total</h2>
                   <h2 id="total" class="text-2xl lg:text-4xl"></h2>
                 </div>
                 <div
-                  class="grid self-end grid-cols-1 gap-2 place-items-center place-content-center"
+                  class="grid self-end grid-cols-1 gap-2  place-items-center place-content-center"
                 >
                   <button
                     class="w-full btn-primary"
@@ -221,11 +221,11 @@
     </header>
     <!-- *BG IMAGE* -->
     <div
-      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover 2xl:bg-center"
+      class="fixed w-full h-screen text-center bg-bottom bg-no-repeat bg-cover  2xl:bg-center"
       style="background-image: url(./assets/images/bg.jpg)"
     >
       <section
-        class="fixed top-0 grid w-full h-full gap-10 text-white bg-black bg-opacity-40 place-items-center place-content-center text-shadow"
+        class="fixed top-0 grid w-full h-full gap-10 text-white bg-black  bg-opacity-40 place-items-center place-content-center text-shadow"
       >
         <h1 class="text-5xl lg:text-8xl">Keiko Ramen</h1>
         <h2 class="font-body">Noodles & Stuff</h2>
@@ -240,7 +240,7 @@
         <h2 class="mb-4 text-white lg:mb-10">Menu</h2>
         <template id="menu-template">
           <div
-            class="grid max-w-5xl mx-auto transition-transform duration-75 ease-linear transform bg-white rounded-sm sm:flex lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white"
+            class="grid max-w-5xl mx-auto transition-transform duration-75 ease-linear transform bg-white rounded-sm  sm:flex lg:hover:scale-105 lg:hover:bg-orange lg:hover:text-white"
           >
             <div class="grid w-full gap-8 p-8 product">
               <div class="grid justify-between w-full gap-4 lg:flex">
@@ -252,11 +252,11 @@
 
             <button
               id="addToCart"
-              class="grid self-stretch justify-center gap-2 p-5 rounded-sm place-items-center place-content-center lg:border-l-2 lg:border-white bg-orange"
+              class="grid self-stretch justify-center gap-2 p-5 rounded-sm  place-items-center place-content-center lg:border-l-2 lg:border-white bg-orange"
             >
               <img src="./assets/images/cart.png" alt="" />
               <span
-                class="text-xl font-bold tracking-wider text-white whitespace-nowrap font-body"
+                class="text-xl font-bold tracking-wider text-white  whitespace-nowrap font-body"
                 >Add to Cart</span
               >
             </button>
@@ -273,7 +273,7 @@
         >
           <template id="order-template">
             <div
-              class="relative grid gap-2 overflow-hidden text-center shadow-2xl justify-items-center flex-0 bg-red hover:shadow-md bezier"
+              class="relative grid gap-2 overflow-hidden text-center shadow-2xl  justify-items-center flex-0 bg-red hover:shadow-md bezier"
             >
               <div class="grid gap-4 p-4 pt-8 justify-items-center">
                 <h3 id="name" class="text-white"></h3>
@@ -294,7 +294,7 @@
         <h2 class="mb-10 text-white">Contact</h2>
         <!-- *Location* -->
         <section
-          class="grid max-w-5xl grid-cols-1 gap-4 mx-auto text-center bg-white place-items-center rounded-s lg:grid-cols-2 animate-right"
+          class="grid max-w-5xl grid-cols-1 gap-4 mx-auto text-center bg-white  place-items-center rounded-s lg:grid-cols-2 animate-right"
         >
           <img
             src="./assets/images/map.png"
@@ -317,7 +317,7 @@
         </section>
         <!-- *SUBSCRIBE* -->
         <section
-          class="grid justify-center max-w-5xl mx-auto mt-10 text-center fade-up md:flex"
+          class="grid justify-center max-w-5xl mx-auto mt-10 text-center  fade-up md:flex"
         >
           <div class="relative w-full">
             <img
@@ -369,7 +369,7 @@
               target="_blank"
               rel="noopener noreferrer"
               ><svg
-                class="transition-colors bg-white rounded-full shadow-lg fill-current icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
+                class="transition-colors bg-white rounded-full shadow-lg fill-current  icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
                 width="50"
                 height="50"
                 viewBox="0 0 50 50"
@@ -386,7 +386,7 @@
               target="_blank"
               rel="noopener noreferrer"
               ><svg
-                class="transition-colors bg-white rounded-full shadow-lg fill-current icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
+                class="transition-colors bg-white rounded-full shadow-lg fill-current  icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
                 width="50"
                 height="50"
                 viewBox="0 0 50 50"
@@ -403,7 +403,7 @@
               target="_blank"
               rel="noopener noreferrer"
               ><svg
-                class="transition-colors bg-white rounded-full shadow-lg fill-current icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
+                class="transition-colors bg-white rounded-full shadow-lg fill-current  icon hover:shadow-sm text-orange hover:text-white hover:bg-orange"
                 width="50"
                 height="50"
                 viewBox="0 0 50 50"
